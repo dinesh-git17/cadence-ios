@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		22C6ABA7F947A308F8D6B5A6 /* CadenceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7A81DEBCC515437DE56C5B /* CadenceApp.swift */; };
+		23B2C530D7B10241D769FE6F /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = 089F39558AB57FEA1FB9E8A2 /* Fonts */; };
 		28E458EF554469DF6A804BC5 /* CadenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9880DDA2B852F0ED7E7ECC0F /* CadenceTests.swift */; };
+		62205DA904FBA0A01A94D933 /* Font+Cadence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F6B6294A3C1CB2E316751A /* Font+Cadence.swift */; };
 		8D8902E9EDADB7F9A4E6B1F4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE12E0610D52C4F727FAAFFD /* ContentView.swift */; };
 		9B738BA7E45D579C2382F74D /* CadenceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1DE86724D4B243D0E61FDD /* CadenceUITests.swift */; };
 		A0B10965E26138F42C677BE1 /* PhosphorSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 63BD81BDB51C7EB6DE95DB35 /* PhosphorSwift */; };
@@ -35,6 +37,8 @@
 
 /* Begin PBXFileReference section */
 		025A75D80144B072AD84822F /* Supabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Supabase.swift; sourceTree = "<group>"; };
+		089F39558AB57FEA1FB9E8A2 /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fonts; path = Cadence/Fonts; sourceTree = SOURCE_ROOT; };
+		08F6B6294A3C1CB2E316751A /* Font+Cadence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Cadence.swift"; sourceTree = "<group>"; };
 		2747B5C0BD75EFECA1D2569B /* Cadence.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Cadence.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F456433D2A424E6A501E1CC /* CadenceUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = CadenceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		53DC5566E2688823A894040D /* CadenceTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = CadenceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,6 +68,7 @@
 			children = (
 				6F7A81DEBCC515437DE56C5B /* CadenceApp.swift */,
 				EE12E0610D52C4F727FAAFFD /* ContentView.swift */,
+				FDEC2C82C08BE089C5619D7D /* DesignSystem */,
 				11EB37EA1F372555425F5CFE /* Services */,
 			);
 			name = Sources;
@@ -98,6 +103,7 @@
 		6A9F1C3B6267176F20AE4B03 = {
 			isa = PBXGroup;
 			children = (
+				089F39558AB57FEA1FB9E8A2 /* Fonts */,
 				474DB1E3FA7ECC764925DA48 /* CadenceTests */,
 				7C881514491CD8DE1546F688 /* CadenceUITests */,
 				374814B8ACA93D26517161EA /* Config */,
@@ -124,6 +130,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		FDEC2C82C08BE089C5619D7D /* DesignSystem */ = {
+			isa = PBXGroup;
+			children = (
+				08F6B6294A3C1CB2E316751A /* Font+Cadence.swift */,
+			);
+			path = DesignSystem;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,6 +146,7 @@
 			buildConfigurationList = 07126B28B5B904C139BBD128 /* Build configuration list for PBXNativeTarget "Cadence" */;
 			buildPhases = (
 				1F5350DE3B53E65CAAF89D1D /* Sources */,
+				BFA5A0EE784FE6F59E5E0293 /* Resources */,
 				56B76F527BA1B0C195D380DB /* Frameworks */,
 			);
 			buildRules = (
@@ -232,6 +247,17 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		BFA5A0EE784FE6F59E5E0293 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23B2C530D7B10241D769FE6F /* Fonts in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1BD5AA8178D9E39E5E0957C9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -247,6 +273,7 @@
 			files = (
 				22C6ABA7F947A308F8D6B5A6 /* CadenceApp.swift in Sources */,
 				8D8902E9EDADB7F9A4E6B1F4 /* ContentView.swift in Sources */,
+				62205DA904FBA0A01A94D933 /* Font+Cadence.swift in Sources */,
 				A1339FF7147D9D8B43A747A0 /* Supabase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

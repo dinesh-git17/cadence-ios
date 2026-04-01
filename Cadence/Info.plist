@@ -24,5 +24,12 @@
 	<string>$(SUPABASE_ANON_KEY)</string>
 	<key>SUPABASE_URL</key>
 	<string>$(SUPABASE_URL)</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>PlayfairDisplay-Regular.ttf</string>
+		<string>PlayfairDisplay-Italic.ttf</string>
+		<string>DMSans-Regular.ttf</string>
+		<string>DMSans-Medium.ttf</string>
+	</array>
 </dict>
 </plist>
