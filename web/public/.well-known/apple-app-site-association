@@ -5,12 +5,13 @@
         "appIDs": ["WWDLQL8W8W.com.dineshd.cadence"],
         "components": [
           { "/": "/invite/*", "comment": "Partner invite deep links" },
-          { "/": "/auth/confirm", "comment": "Email confirmation callback" }
+          { "/": "/auth/confirm", "comment": "Email confirmation callback" },
+          { "/": "/auth/reset", "comment": "Password reset callback" }
         ]
       },
       {
         "appID": "WWDLQL8W8W.com.dineshd.cadence",
-        "paths": ["/invite/*", "/auth/confirm"]
+        "paths": ["/invite/*", "/auth/confirm", "/auth/reset"]
       }
     ]
   }
