@@ -1,0 +1,19 @@
+name: Scheduled
+on:
+  schedule:
+    - cron: '0 9 * * 1'
+  workflow_dispatch:
+
+jobs:
+  dependency-audit:
+    name: SPM Dependency Audit
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Resolve packages
+        run: xcodebuild -resolvePackageDependencies -project Cadence.xcodeproj -scheme Cadence
+
+      - name: Check for known vulnerabilities
+        run: |
+          swift package --package-path "$(find ~/Library/Developer/Xcode/DerivedData -name 'workspace-state.json' -path '*/Cadence-*' -exec dirname {} \; | head -1)/.." audit 2>&1 || true

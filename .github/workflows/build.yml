@@ -1,0 +1,37 @@
+name: Build
+# Disabled: GitHub-hosted runners lack Xcode 26. Re-enable when macos runners ship with Xcode 26+.
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: build-${{ github.head_ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Xcode Build
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Write xcconfig
+        run: |
+          mkdir -p Config
+          cat > Config/Debug.xcconfig << 'XCEOF'
+          SUPABASE_URL = ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY = ${{ secrets.SUPABASE_ANON_KEY }}
+          XCEOF
+          cp Config/Debug.xcconfig Config/Release.xcconfig
+
+      - name: Resolve packages
+        run: xcodebuild -resolvePackageDependencies -project Cadence.xcodeproj -scheme Cadence
+
+      - name: Build
+        run: |
+          xcodebuild build \
+            -project Cadence.xcodeproj \
+            -scheme Cadence \
+            -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.4' \
+            -quiet \
+            CODE_SIGN_IDENTITY=- \
+            CODE_SIGNING_ALLOWED=NO
