@@ -15,7 +15,9 @@
 		28E458EF554469DF6A804BC5 /* CadenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9880DDA2B852F0ED7E7ECC0F /* CadenceTests.swift */; };
 		3807E0B55E291692C14D199F /* CadenceIconTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C3142FCD090B6F91573907 /* CadenceIconTile.swift */; };
 		3CAA3BF8CB95C2120C64775F /* CadenceTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32DD8290358EF3C6E4A4CF4 /* CadenceTokens.swift */; };
+		3E57A4433FAF662F14385E2D /* EncryptionServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF38A57EEC9FB4FA7335F183 /* EncryptionServiceTests.swift */; };
 		41E84455D93A7D33D192EB96 /* CyclePhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CCB6005D981B5BC11C8A1E /* CyclePhase.swift */; };
+		505F4C838CBD83D3BC566921 /* EncryptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188FC76DD3203309DFAD89FE /* EncryptionService.swift */; };
 		62205DA904FBA0A01A94D933 /* Font+Cadence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F6B6294A3C1CB2E316751A /* Font+Cadence.swift */; };
 		7C163443981FE2F21B5CC506 /* CadenceChip.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A25E13E53C9BC689C5E08E /* CadenceChip.swift */; };
 		87CF6F3328540C3DE01B8273 /* CadenceHeroCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD98C6BC4C1E4A300C950AF0 /* CadenceHeroCard.swift */; };
@@ -56,6 +58,7 @@
 		025A75D80144B072AD84822F /* Supabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Supabase.swift; sourceTree = "<group>"; };
 		089F39558AB57FEA1FB9E8A2 /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fonts; path = Cadence/Fonts; sourceTree = SOURCE_ROOT; };
 		08F6B6294A3C1CB2E316751A /* Font+Cadence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Cadence.swift"; sourceTree = "<group>"; };
+		188FC76DD3203309DFAD89FE /* EncryptionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptionService.swift; sourceTree = "<group>"; };
 		2747B5C0BD75EFECA1D2569B /* Cadence.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Cadence.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		291E4AA84C6C3B02259146C0 /* CadenceSegmentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceSegmentButton.swift; sourceTree = "<group>"; };
 		38A7FA0AAE246170075F11D3 /* CadenceEnergyRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceEnergyRow.swift; sourceTree = "<group>"; };
@@ -78,6 +81,7 @@
 		BC10C2DE737B270E96193308 /* CadenceProgressDots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceProgressDots.swift; sourceTree = "<group>"; };
 		C259254050ABD2611807FF00 /* Color+Cadence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Cadence.swift"; sourceTree = "<group>"; };
 		CA1E907AC7B7E11BCBD40A16 /* DesignSystemPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystemPreview.swift; sourceTree = "<group>"; };
+		CF38A57EEC9FB4FA7335F183 /* EncryptionServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptionServiceTests.swift; sourceTree = "<group>"; };
 		DD98C6BC4C1E4A300C950AF0 /* CadenceHeroCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceHeroCard.swift; sourceTree = "<group>"; };
 		DDB227624E9820560B400EC7 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		E7A25E13E53C9BC689C5E08E /* CadenceChip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceChip.swift; sourceTree = "<group>"; };
@@ -112,6 +116,7 @@
 		11EB37EA1F372555425F5CFE /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				188FC76DD3203309DFAD89FE /* EncryptionService.swift */,
 				025A75D80144B072AD84822F /* Supabase.swift */,
 			);
 			path = Services;
@@ -130,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				9880DDA2B852F0ED7E7ECC0F /* CadenceTests.swift */,
+				CF38A57EEC9FB4FA7335F183 /* EncryptionServiceTests.swift */,
 			);
 			path = CadenceTests;
 			sourceTree = "<group>";
@@ -349,6 +355,7 @@
 				8D8902E9EDADB7F9A4E6B1F4 /* ContentView.swift in Sources */,
 				41E84455D93A7D33D192EB96 /* CyclePhase.swift in Sources */,
 				DA18D83940DD16DBF4F05333 /* DesignSystemPreview.swift in Sources */,
+				505F4C838CBD83D3BC566921 /* EncryptionService.swift in Sources */,
 				62205DA904FBA0A01A94D933 /* Font+Cadence.swift in Sources */,
 				A1339FF7147D9D8B43A747A0 /* Supabase.swift in Sources */,
 			);
@@ -359,6 +366,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				28E458EF554469DF6A804BC5 /* CadenceTests.swift in Sources */,
+				3E57A4433FAF662F14385E2D /* EncryptionServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
