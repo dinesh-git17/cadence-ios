@@ -12,6 +12,14 @@ settings:
     SWIFT_VERSION: "5.9"
     CODE_SIGN_STYLE: Automatic
 
+packages:
+  Supabase:
+    url: https://github.com/supabase/supabase-swift
+    exactVersion: "2.43.0"
+  PhosphorSwift:
+    url: https://github.com/phosphor-icons/swift
+    from: "2.1.0"
+
 targets:
   Cadence:
     type: application
@@ -22,6 +30,9 @@ targets:
       - path: Cadence/Resources
     entitlements:
       path: Cadence/Cadence.entitlements
+    dependencies:
+      - package: Supabase
+      - package: PhosphorSwift
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.dineshd.cadence

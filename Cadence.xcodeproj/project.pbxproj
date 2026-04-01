@@ -11,6 +11,8 @@
 		28E458EF554469DF6A804BC5 /* CadenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9880DDA2B852F0ED7E7ECC0F /* CadenceTests.swift */; };
 		8D8902E9EDADB7F9A4E6B1F4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE12E0610D52C4F727FAAFFD /* ContentView.swift */; };
 		9B738BA7E45D579C2382F74D /* CadenceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1DE86724D4B243D0E61FDD /* CadenceUITests.swift */; };
+		A0B10965E26138F42C677BE1 /* PhosphorSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 63BD81BDB51C7EB6DE95DB35 /* PhosphorSwift */; };
+		CA7DEBC92273F86FC09DB926 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 47DC5B319847E2250B78234F /* Supabase */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,7 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2747B5C0BD75EFECA1D2569B /* Cadence.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cadence.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2747B5C0BD75EFECA1D2569B /* Cadence.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Cadence.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F456433D2A424E6A501E1CC /* CadenceUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = CadenceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		53DC5566E2688823A894040D /* CadenceTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = CadenceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F7A81DEBCC515437DE56C5B /* CadenceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceApp.swift; sourceTree = "<group>"; };
@@ -39,6 +41,18 @@
 		9880DDA2B852F0ED7E7ECC0F /* CadenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceTests.swift; sourceTree = "<group>"; };
 		EE12E0610D52C4F727FAAFFD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		56B76F527BA1B0C195D380DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA7DEBC92273F86FC09DB926 /* Supabase in Frameworks */,
+				A0B10965E26138F42C677BE1 /* PhosphorSwift in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		101C4A96CD1B541BD4BF25D3 /* Sources */ = {
@@ -95,6 +109,7 @@
 			buildConfigurationList = 07126B28B5B904C139BBD128 /* Build configuration list for PBXNativeTarget "Cadence" */;
 			buildPhases = (
 				1F5350DE3B53E65CAAF89D1D /* Sources */,
+				56B76F527BA1B0C195D380DB /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -102,6 +117,8 @@
 			);
 			name = Cadence;
 			packageProductDependencies = (
+				47DC5B319847E2250B78234F /* Supabase */,
+				63BD81BDB51C7EB6DE95DB35 /* PhosphorSwift */,
 			);
 			productName = Cadence;
 			productReference = 2747B5C0BD75EFECA1D2569B /* Cadence.app */;
@@ -176,6 +193,10 @@
 			);
 			mainGroup = 6A9F1C3B6267176F20AE4B03;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				F6D85FC1EBA5D66B58FEF355 /* XCRemoteSwiftPackageReference "swift" */,
+				45A20CE77C7291472E42CB63 /* XCRemoteSwiftPackageReference "supabase-swift" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = ADFE63F9A7B11522B6C8E81A /* Products */;
 			projectDirPath = "";
@@ -240,8 +261,6 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_GENERATION_MODE = GeneratedFile;
-				INFOPLIST_KEY_CFBundleDisplayName = Cadence;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -263,8 +282,6 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_GENERATION_MODE = GeneratedFile;
-				INFOPLIST_KEY_CFBundleDisplayName = Cadence;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -507,6 +524,38 @@
 			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		45A20CE77C7291472E42CB63 /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/supabase/supabase-swift";
+			requirement = {
+				kind = exactVersion;
+				version = 2.43.0;
+			};
+		};
+		F6D85FC1EBA5D66B58FEF355 /* XCRemoteSwiftPackageReference "swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/phosphor-icons/swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		47DC5B319847E2250B78234F /* Supabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 45A20CE77C7291472E42CB63 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Supabase;
+		};
+		63BD81BDB51C7EB6DE95DB35 /* PhosphorSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F6D85FC1EBA5D66B58FEF355 /* XCRemoteSwiftPackageReference "swift" */;
+			productName = PhosphorSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9FA114BF81E88A4D01B65D31 /* Project object */;
 }
