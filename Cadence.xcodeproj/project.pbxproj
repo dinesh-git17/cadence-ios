@@ -7,15 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08DCC9AF8B1F02AB1B151A39 /* CadenceSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB51B73480AB0D7DE56A2E14 /* CadenceSectionHeader.swift */; };
+		173A2E4772CBF95AA9597BA9 /* CadenceEnergyRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A7FA0AAE246170075F11D3 /* CadenceEnergyRow.swift */; };
+		1CDF3EA45BA0A6C6C8472819 /* CadenceGroupedCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B43F494E0DD805B07C8237F /* CadenceGroupedCard.swift */; };
 		22C6ABA7F947A308F8D6B5A6 /* CadenceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7A81DEBCC515437DE56C5B /* CadenceApp.swift */; };
 		23B2C530D7B10241D769FE6F /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = 089F39558AB57FEA1FB9E8A2 /* Fonts */; };
 		28E458EF554469DF6A804BC5 /* CadenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9880DDA2B852F0ED7E7ECC0F /* CadenceTests.swift */; };
+		3807E0B55E291692C14D199F /* CadenceIconTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C3142FCD090B6F91573907 /* CadenceIconTile.swift */; };
+		3CAA3BF8CB95C2120C64775F /* CadenceTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32DD8290358EF3C6E4A4CF4 /* CadenceTokens.swift */; };
+		41E84455D93A7D33D192EB96 /* CyclePhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CCB6005D981B5BC11C8A1E /* CyclePhase.swift */; };
 		62205DA904FBA0A01A94D933 /* Font+Cadence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F6B6294A3C1CB2E316751A /* Font+Cadence.swift */; };
+		7C163443981FE2F21B5CC506 /* CadenceChip.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A25E13E53C9BC689C5E08E /* CadenceChip.swift */; };
+		87CF6F3328540C3DE01B8273 /* CadenceHeroCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD98C6BC4C1E4A300C950AF0 /* CadenceHeroCard.swift */; };
 		8D8902E9EDADB7F9A4E6B1F4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE12E0610D52C4F727FAAFFD /* ContentView.swift */; };
+		96B6F59E748B0E03EC63EB82 /* CadenceAvatarCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687C87BBB7F17FD021B6E102 /* CadenceAvatarCircle.swift */; };
 		9B738BA7E45D579C2382F74D /* CadenceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1DE86724D4B243D0E61FDD /* CadenceUITests.swift */; };
+		9F2C7F538E1143A1A786813D /* CadenceProgressDots.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC10C2DE737B270E96193308 /* CadenceProgressDots.swift */; };
 		A0B10965E26138F42C677BE1 /* PhosphorSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 63BD81BDB51C7EB6DE95DB35 /* PhosphorSwift */; };
 		A1339FF7147D9D8B43A747A0 /* Supabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025A75D80144B072AD84822F /* Supabase.swift */; };
+		B113799C232C97FAEFA5EFA8 /* Color+Cadence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C259254050ABD2611807FF00 /* Color+Cadence.swift */; };
+		BB3A401186383362C0AF512B /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE60F456B694C5CE8EA7CE /* ButtonStyles.swift */; };
+		C4319DEE040FFE4346B4B391 /* CadenceToggleRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40368D2887BCEF67D61DC725 /* CadenceToggleRow.swift */; };
 		CA7DEBC92273F86FC09DB926 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 47DC5B319847E2250B78234F /* Supabase */; };
+		DA18D83940DD16DBF4F05333 /* DesignSystemPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1E907AC7B7E11BCBD40A16 /* DesignSystemPreview.swift */; };
+		EDC38C42F4AC3B388C3DC3F0 /* CadenceFlowRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8262C963414151BE057B1E02 /* CadenceFlowRow.swift */; };
+		F19DE76A62850BBD09F253F7 /* CadencePartnerHeroCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59541F56BB74507B4EDE2892 /* CadencePartnerHeroCard.swift */; };
+		F7F484AB4B8546A8CEBDCDDE /* CadenceSegmentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291E4AA84C6C3B02259146C0 /* CadenceSegmentButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,13 +57,30 @@
 		089F39558AB57FEA1FB9E8A2 /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fonts; path = Cadence/Fonts; sourceTree = SOURCE_ROOT; };
 		08F6B6294A3C1CB2E316751A /* Font+Cadence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Cadence.swift"; sourceTree = "<group>"; };
 		2747B5C0BD75EFECA1D2569B /* Cadence.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Cadence.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		291E4AA84C6C3B02259146C0 /* CadenceSegmentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceSegmentButton.swift; sourceTree = "<group>"; };
+		38A7FA0AAE246170075F11D3 /* CadenceEnergyRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceEnergyRow.swift; sourceTree = "<group>"; };
+		40368D2887BCEF67D61DC725 /* CadenceToggleRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceToggleRow.swift; sourceTree = "<group>"; };
+		4B43F494E0DD805B07C8237F /* CadenceGroupedCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceGroupedCard.swift; sourceTree = "<group>"; };
 		4F456433D2A424E6A501E1CC /* CadenceUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = CadenceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		53DC5566E2688823A894040D /* CadenceTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = CadenceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		59541F56BB74507B4EDE2892 /* CadencePartnerHeroCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadencePartnerHeroCard.swift; sourceTree = "<group>"; };
+		687C87BBB7F17FD021B6E102 /* CadenceAvatarCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceAvatarCircle.swift; sourceTree = "<group>"; };
 		6F7A81DEBCC515437DE56C5B /* CadenceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceApp.swift; sourceTree = "<group>"; };
+		8262C963414151BE057B1E02 /* CadenceFlowRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceFlowRow.swift; sourceTree = "<group>"; };
+		88C3142FCD090B6F91573907 /* CadenceIconTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceIconTile.swift; sourceTree = "<group>"; };
 		8F1DE86724D4B243D0E61FDD /* CadenceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceUITests.swift; sourceTree = "<group>"; };
+		96CCB6005D981B5BC11C8A1E /* CyclePhase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CyclePhase.swift; sourceTree = "<group>"; };
 		9880DDA2B852F0ED7E7ECC0F /* CadenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceTests.swift; sourceTree = "<group>"; };
 		998821507A17686BDC11A37A /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		A32DD8290358EF3C6E4A4CF4 /* CadenceTokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceTokens.swift; sourceTree = "<group>"; };
+		A7AE60F456B694C5CE8EA7CE /* ButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
+		AB51B73480AB0D7DE56A2E14 /* CadenceSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceSectionHeader.swift; sourceTree = "<group>"; };
+		BC10C2DE737B270E96193308 /* CadenceProgressDots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceProgressDots.swift; sourceTree = "<group>"; };
+		C259254050ABD2611807FF00 /* Color+Cadence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Cadence.swift"; sourceTree = "<group>"; };
+		CA1E907AC7B7E11BCBD40A16 /* DesignSystemPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystemPreview.swift; sourceTree = "<group>"; };
+		DD98C6BC4C1E4A300C950AF0 /* CadenceHeroCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceHeroCard.swift; sourceTree = "<group>"; };
 		DDB227624E9820560B400EC7 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		E7A25E13E53C9BC689C5E08E /* CadenceChip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceChip.swift; sourceTree = "<group>"; };
 		EE12E0610D52C4F727FAAFFD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -100,6 +134,25 @@
 			path = CadenceTests;
 			sourceTree = "<group>";
 		};
+		548C43A05E35ABEBD2EECEFE /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				687C87BBB7F17FD021B6E102 /* CadenceAvatarCircle.swift */,
+				E7A25E13E53C9BC689C5E08E /* CadenceChip.swift */,
+				38A7FA0AAE246170075F11D3 /* CadenceEnergyRow.swift */,
+				8262C963414151BE057B1E02 /* CadenceFlowRow.swift */,
+				4B43F494E0DD805B07C8237F /* CadenceGroupedCard.swift */,
+				DD98C6BC4C1E4A300C950AF0 /* CadenceHeroCard.swift */,
+				88C3142FCD090B6F91573907 /* CadenceIconTile.swift */,
+				59541F56BB74507B4EDE2892 /* CadencePartnerHeroCard.swift */,
+				BC10C2DE737B270E96193308 /* CadenceProgressDots.swift */,
+				AB51B73480AB0D7DE56A2E14 /* CadenceSectionHeader.swift */,
+				291E4AA84C6C3B02259146C0 /* CadenceSegmentButton.swift */,
+				40368D2887BCEF67D61DC725 /* CadenceToggleRow.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		6A9F1C3B6267176F20AE4B03 = {
 			isa = PBXGroup;
 			children = (
@@ -133,7 +186,13 @@
 		FDEC2C82C08BE089C5619D7D /* DesignSystem */ = {
 			isa = PBXGroup;
 			children = (
+				A7AE60F456B694C5CE8EA7CE /* ButtonStyles.swift */,
+				A32DD8290358EF3C6E4A4CF4 /* CadenceTokens.swift */,
+				C259254050ABD2611807FF00 /* Color+Cadence.swift */,
+				96CCB6005D981B5BC11C8A1E /* CyclePhase.swift */,
+				CA1E907AC7B7E11BCBD40A16 /* DesignSystemPreview.swift */,
 				08F6B6294A3C1CB2E316751A /* Font+Cadence.swift */,
+				548C43A05E35ABEBD2EECEFE /* Components */,
 			);
 			path = DesignSystem;
 			sourceTree = "<group>";
@@ -271,8 +330,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB3A401186383362C0AF512B /* ButtonStyles.swift in Sources */,
 				22C6ABA7F947A308F8D6B5A6 /* CadenceApp.swift in Sources */,
+				96B6F59E748B0E03EC63EB82 /* CadenceAvatarCircle.swift in Sources */,
+				7C163443981FE2F21B5CC506 /* CadenceChip.swift in Sources */,
+				173A2E4772CBF95AA9597BA9 /* CadenceEnergyRow.swift in Sources */,
+				EDC38C42F4AC3B388C3DC3F0 /* CadenceFlowRow.swift in Sources */,
+				1CDF3EA45BA0A6C6C8472819 /* CadenceGroupedCard.swift in Sources */,
+				87CF6F3328540C3DE01B8273 /* CadenceHeroCard.swift in Sources */,
+				3807E0B55E291692C14D199F /* CadenceIconTile.swift in Sources */,
+				F19DE76A62850BBD09F253F7 /* CadencePartnerHeroCard.swift in Sources */,
+				9F2C7F538E1143A1A786813D /* CadenceProgressDots.swift in Sources */,
+				08DCC9AF8B1F02AB1B151A39 /* CadenceSectionHeader.swift in Sources */,
+				F7F484AB4B8546A8CEBDCDDE /* CadenceSegmentButton.swift in Sources */,
+				C4319DEE040FFE4346B4B391 /* CadenceToggleRow.swift in Sources */,
+				3CAA3BF8CB95C2120C64775F /* CadenceTokens.swift in Sources */,
+				B113799C232C97FAEFA5EFA8 /* Color+Cadence.swift in Sources */,
 				8D8902E9EDADB7F9A4E6B1F4 /* ContentView.swift in Sources */,
+				41E84455D93A7D33D192EB96 /* CyclePhase.swift in Sources */,
+				DA18D83940DD16DBF4F05333 /* DesignSystemPreview.swift in Sources */,
 				62205DA904FBA0A01A94D933 /* Font+Cadence.swift in Sources */,
 				A1339FF7147D9D8B43A747A0 /* Supabase.swift in Sources */,
 			);
