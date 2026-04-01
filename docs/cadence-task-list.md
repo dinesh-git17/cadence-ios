@@ -356,13 +356,13 @@ Fix any issues before moving to Phase 1. A green CI pipeline on a trivial change
 
 ---
 
-## Phase 1 — Core Infrastructure
+## Phase 1 — Core Infrastructure ✓ COMPLETE
 
 > The shared layers that every feature depends on. Build these before any screen.
 
 ---
 
-### 1.1 — Design System Tokens + Base Components
+### ~~1.1 — Design System Tokens + Base Components~~
 
 **Type:** Claude Code
 **Skills:** `cadence-design-system`
@@ -393,7 +393,7 @@ Write a `DesignSystemPreview.swift` file with SwiftUI previews for every compone
 
 ---
 
-### 1.2 — EncryptionService
+### ~~1.2 — EncryptionService~~
 
 **Type:** Claude Code
 **Skills:** `cadence-encryption`
@@ -420,7 +420,7 @@ Implement the client-side AES-GCM encryption layer. This is the most critical in
 
 ---
 
-### 1.3 — Auth Flow (Sign in with Apple + Email)
+### ~~1.3 — Auth Flow (Sign in with Apple + Email)~~
 
 **Type:** Claude Code
 **Skills:** `cadence-supabase`
@@ -450,7 +450,7 @@ Implement authentication using Supabase Auth. This is the gate to the entire app
 
 ---
 
-### 1.4 — Supabase Data Layer
+### ~~1.4 — Supabase Data Layer~~
 
 **Type:** Claude Code
 **Skills:** `cadence-supabase`, `cadence-encryption`
