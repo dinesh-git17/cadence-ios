@@ -65,6 +65,22 @@
         margin-top: 32px;
       }
     </style>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        var params = window.location.search || '';
+        var hash = window.location.hash || '';
+        var deepLink = 'cadence://auth/reset' + params + hash;
+
+        // Auto-attempt to open the app
+        window.location.href = deepLink;
+
+        // Update the button as a manual fallback
+        var btn = document.getElementById('open-app');
+        if (btn) {
+          btn.href = deepLink;
+        }
+      });
+    </script>
   </head>
   <body>
     <div class="bg-circle bg-circle-1"></div>
@@ -80,8 +96,8 @@
           </svg>
         </div>
         <h1>Reset your password</h1>
-        <p>Open Cadence on your device to set a new password.</p>
-        <a href="/" class="btn-primary">Back to Cadence</a>
+        <p>Tap the button below to open Cadence and set a new password.</p>
+        <a id="open-app" href="cadence://auth/reset" class="btn-primary">Open Cadence</a>
       </div>
       <p class="reset-footer">Cycle tracking, together.</p>
     </div>
