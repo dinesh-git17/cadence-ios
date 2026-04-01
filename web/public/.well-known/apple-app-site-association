@@ -1,0 +1,16 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["WWDLQL8W8W.com.dineshd.cadence"],
+        "components": [
+          { "/": "/invite/*", "comment": "Partner invite deep links" }
+        ]
+      },
+      {
+        "appID": "WWDLQL8W8W.com.dineshd.cadence",
+        "paths": ["/invite/*"]
+      }
+    ]
+  }
+}
