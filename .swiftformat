@@ -1,0 +1,13 @@
+# SwiftFormat configuration for Cadence iOS.
+
+--swiftversion 5.9
+--indent 4
+--indentcase true
+--trimwhitespace always
+--voidtype void
+--wraparguments before-first
+--wrapcollections before-first
+--maxwidth 120
+--semicolons never
+--commas always
+--stripunusedargs closure-only

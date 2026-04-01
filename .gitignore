@@ -1,0 +1,51 @@
+# -- Xcode / Swift --
+DerivedData/
+build/
+*.xcworkspace/xcuserdata/
+*.xcodeproj/xcuserdata/
+*.pbxuser
+*.perspectivev3
+*.mode1v3
+*.mode2v3
+xcuserdata/
+*.moved-aside
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# -- Swift Package Manager --
+.build/
+.swiftpm/xcode/
+Package.resolved
+
+# -- CocoaPods --
+Pods/
+
+# -- Environment / secrets --
+.env
+.env.*
+*.p8
+*.p12
+*.mobileprovision
+
+# -- Python --
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# -- OS --
+.DS_Store
+Thumbs.db
+
+# -- IDE --
+.vscode/
+.idea/
+
+# -- mypy --
+.mypy_cache/
+
+# -- Misc --
+*.log

@@ -1,0 +1,104 @@
+# Cadence iOS — Local Git Hook Configuration
+#
+# Install:  tools/setup-hooks.sh
+# Docs:     docs/LOCAL-HOOKS.md
+
+default_stages: [pre-commit]
+fail_fast: false
+
+repos:
+  # ── Standard pre-commit hooks ───────────────────────────────────────────
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: trailing-whitespace
+        args: [--markdown-linebreak-ext=md]
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-json
+      - id: check-merge-conflict
+      - id: no-commit-to-branch
+        args: [--branch, main]
+
+  # ── Secrets scanning (gitleaks) ─────────────────────────────────────────
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.24.3
+    hooks:
+      - id: gitleaks
+
+  # ── Local hooks ─────────────────────────────────────────────────────────
+  - repo: local
+    hooks:
+      # -- SwiftFormat (auto-fix) --
+      - id: swiftformat
+        name: swiftformat
+        entry: tools/hooks/swiftformat-hook.sh
+        language: script
+        types: [swift]
+        pass_filenames: false
+
+      # -- SwiftLint (strict, check-only) --
+      - id: swiftlint
+        name: swiftlint --strict
+        entry: tools/hooks/swiftlint-hook.sh
+        language: script
+        types: [swift]
+        pass_filenames: false
+
+      # -- Ghost Check (AI provenance scanner) --
+      - id: ghost-check
+        name: ghost-check
+        entry: tools/hooks/ghost-check-hook.sh
+        language: script
+        pass_filenames: false
+
+      # -- Privacy Logging Scan --
+      - id: privacy-logging-scan
+        name: privacy logging scan
+        entry: tools/hooks/privacy-logging-scan.sh
+        language: script
+        pass_filenames: false
+
+      # -- Encryption Path Enforcement --
+      - id: encryption-path-guard
+        name: encryption path enforcement
+        entry: tools/hooks/encryption-path-guard.sh
+        language: script
+        pass_filenames: false
+
+      # -- RLS / Migration Guard --
+      - id: rls-migration-guard
+        name: rls / migration guard
+        entry: tools/hooks/rls-migration-guard.sh
+        language: script
+        pass_filenames: false
+
+      # -- Sharing Invariant Guard --
+      - id: sharing-invariant-guard
+        name: sharing invariant guard
+        entry: tools/hooks/sharing-invariant-guard.sh
+        language: script
+        pass_filenames: false
+
+      # -- Commit Message Lint --
+      - id: commit-msg-lint
+        name: commit message lint
+        entry: tools/hooks/commit-msg-lint.sh
+        language: script
+        stages: [commit-msg]
+
+      # -- Branch Protection (pre-push) --
+      - id: branch-protect-push
+        name: block push to main
+        entry: tools/hooks/branch-protect.sh
+        language: script
+        stages: [pre-push]
+        pass_filenames: false
+
+      # -- Build Verification (pre-push) --
+      - id: build-and-test
+        name: build and test
+        entry: tools/hooks/build-and-test.sh
+        language: script
+        stages: [pre-push]
+        pass_filenames: false

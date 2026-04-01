@@ -1,0 +1,12 @@
+# Gitleaks configuration for Cadence iOS.
+
+title = "cadence-ios gitleaks config"
+
+[allowlist]
+  paths = [
+    '''\.xcassets/''',
+    '''\.strings$''',
+    '''\.stringsdict$''',
+    '''Package\.resolved$''',
+    '''tools/ghost_check\.py$''',
+  ]
