@@ -12,6 +12,7 @@ struct WelcomeView: View {
             backgroundDecoration
             content
         }
+        .ignoresSafeArea(.keyboard)
     }
 
     // MARK: - Background Decoration
@@ -39,13 +40,21 @@ struct WelcomeView: View {
     private var content: some View {
         VStack(alignment: .leading, spacing: 0) {
             wordmark
-            Spacer()
+            Spacer().frame(minHeight: CadenceSpacing.md)
+            Spacer().frame(minHeight: CadenceSpacing.md)
+            Spacer().frame(minHeight: CadenceSpacing.md)
+            Spacer().frame(minHeight: CadenceSpacing.md)
+            Spacer().frame(minHeight: CadenceSpacing.md)
             heroSection
-            Spacer()
+            Spacer().frame(minHeight: CadenceSpacing.md)
+            Spacer().frame(minHeight: CadenceSpacing.md)
+            Spacer().frame(minHeight: CadenceSpacing.md)
+            Spacer().frame(minHeight: CadenceSpacing.md)
             authStack
         }
         .padding(.horizontal, CadenceSpacing.xl)
-        .padding(.vertical, CadenceSpacing.xxl)
+        .padding(.top, CadenceSpacing.xxl)
+        .padding(.bottom, CadenceSpacing.lg)
     }
 
     private var wordmark: some View {
@@ -69,20 +78,22 @@ struct WelcomeView: View {
                 .kerning(1.32)
 
             (Text("Your rhythm, ")
-                .font(.cadenceDisplay)
+                .font(.custom("PlayfairDisplay-Regular", size: 28))
                 .foregroundColor(.cadenceTextPrimary)
                 + Text("shared")
-                .font(.cadenceTitleItalic)
+                .font(.custom("PlayfairDisplay-Italic", size: 28))
                 .foregroundColor(.cadencePrimary)
-                + Text(" with someone who cares.")
-                .font(.cadenceDisplay)
+                + Text("\nwith someone who cares.")
+                .font(.custom("PlayfairDisplay-Regular", size: 28))
                 .foregroundColor(.cadenceTextPrimary))
-                .lineSpacing(4)
+                .lineSpacing(6)
+                .fixedSize(horizontal: false, vertical: true)
 
-            Text("Track your cycle. Understand your body. Let your partner in — on your terms.")
+            Text("Track your cycle. Understand your body.\nLet your partner in — on your terms.")
                 .font(.cadenceBodyMedium)
                 .foregroundColor(.cadenceTextSecondary)
                 .lineSpacing(4)
+                .fixedSize(horizontal: false, vertical: true)
                 .padding(.top, 2)
         }
     }

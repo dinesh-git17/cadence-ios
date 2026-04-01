@@ -24,12 +24,29 @@
 	<string>$(SUPABASE_ANON_KEY)</string>
 	<key>SUPABASE_URL</key>
 	<string>$(SUPABASE_URL)</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>com.dineshd.cadence</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>cadence</string>
+			</array>
+		</dict>
+	</array>
+	<key>UILaunchScreen</key>
+	<dict/>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+	</array>
 	<key>UIAppFonts</key>
 	<array>
-		<string>PlayfairDisplay-Regular.ttf</string>
-		<string>PlayfairDisplay-Italic.ttf</string>
-		<string>DMSans-Regular.ttf</string>
-		<string>DMSans-Medium.ttf</string>
+		<string>Fonts/PlayfairDisplay-Regular.ttf</string>
+		<string>Fonts/PlayfairDisplay-Italic.ttf</string>
+		<string>Fonts/DMSans-Regular.ttf</string>
+		<string>Fonts/DMSans-Medium.ttf</string>
 	</array>
 </dict>
 </plist>

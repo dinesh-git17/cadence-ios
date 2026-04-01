@@ -1,8 +1,11 @@
 import AuthenticationServices
 import CryptoKit
 import Supabase
+import UIKit
 
-final class AppleSignInCoordinator: NSObject, ASAuthorizationControllerDelegate {
+private typealias PresentationProvider = ASAuthorizationControllerPresentationContextProviding
+
+final class AppleSignInCoordinator: NSObject, ASAuthorizationControllerDelegate, PresentationProvider {
     private var rawNonce = ""
     private var continuation: CheckedContinuation<Session, Error>?
 
@@ -19,8 +22,23 @@ final class AppleSignInCoordinator: NSObject, ASAuthorizationControllerDelegate 
             self.continuation = continuation
             let controller = ASAuthorizationController(authorizationRequests: [request])
             controller.delegate = self
+            controller.presentationContextProvider = self
             controller.performRequests()
         }
+    }
+
+    // MARK: - ASAuthorizationControllerPresentationContextProviding
+
+    func presentationAnchor(for _: ASAuthorizationController) -> ASPresentationAnchor {
+        guard
+            let scene = UIApplication.shared.connectedScenes.first(where: {
+                $0.activationState == .foregroundActive
+            }) as? UIWindowScene,
+            let window = scene.windows.first(where: \.isKeyWindow)
+        else {
+            return ASPresentationAnchor()
+        }
+        return window
     }
 
     // MARK: - ASAuthorizationControllerDelegate

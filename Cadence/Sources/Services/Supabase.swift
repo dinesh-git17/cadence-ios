@@ -6,7 +6,8 @@ let supabase = SupabaseClient(
     supabaseKey: Secrets.supabaseAnonKey,
     options: SupabaseClientOptions(
         auth: SupabaseClientOptions.AuthOptions(
-            flowType: .pkce
+            flowType: .pkce,
+            emitLocalSessionAsInitialSession: true
         )
     )
 )

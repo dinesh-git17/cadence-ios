@@ -8,7 +8,9 @@ struct RootView: View {
     var body: some View {
         Group {
             if authViewModel.isAuthenticated {
-                if onboardingComplete {
+                if authViewModel.passwordRecoveryActive {
+                    ResetPasswordView(authViewModel: authViewModel)
+                } else if onboardingComplete {
                     mainTabView
                 } else {
                     onboardingPlaceholder
@@ -18,7 +20,17 @@ struct RootView: View {
             }
         }
         .animation(.easeInOut(duration: 0.3), value: authViewModel.isAuthenticated)
+        .animation(.easeInOut(duration: 0.3), value: authViewModel.passwordRecoveryActive)
         .animation(.easeInOut(duration: 0.3), value: onboardingComplete)
+        .onOpenURL { url in
+            let resolved = resolveAuthURL(url)
+            let isReset = url.path.contains("/auth/reset")
+                || (url.scheme == "cadence" && url.host == "auth" && url.path.contains("reset"))
+            if isReset {
+                authViewModel.passwordRecoveryActive = true
+            }
+            Task { try? await supabase.auth.handle(resolved) }
+        }
     }
 
     /// Placeholder until the onboarding flow is implemented in Task 2.1.
