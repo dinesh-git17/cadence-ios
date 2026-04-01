@@ -12,8 +12,10 @@
 		1CDF3EA45BA0A6C6C8472819 /* CadenceGroupedCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B43F494E0DD805B07C8237F /* CadenceGroupedCard.swift */; };
 		22C6ABA7F947A308F8D6B5A6 /* CadenceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7A81DEBCC515437DE56C5B /* CadenceApp.swift */; };
 		23B2C530D7B10241D769FE6F /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = 089F39558AB57FEA1FB9E8A2 /* Fonts */; };
+		289DB9133878715F139944BB /* SharedLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2B6504A03AA801032735F0 /* SharedLog.swift */; };
 		28E458EF554469DF6A804BC5 /* CadenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9880DDA2B852F0ED7E7ECC0F /* CadenceTests.swift */; };
 		3807E0B55E291692C14D199F /* CadenceIconTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C3142FCD090B6F91573907 /* CadenceIconTile.swift */; };
+		3B39F348922FEB97AE7513F9 /* CycleProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A70FF951485E8B88698EF8 /* CycleProfile.swift */; };
 		3CAA3BF8CB95C2120C64775F /* CadenceTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32DD8290358EF3C6E4A4CF4 /* CadenceTokens.swift */; };
 		3E57A4433FAF662F14385E2D /* EncryptionServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF38A57EEC9FB4FA7335F183 /* EncryptionServiceTests.swift */; };
 		41E84455D93A7D33D192EB96 /* CyclePhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CCB6005D981B5BC11C8A1E /* CyclePhase.swift */; };
@@ -21,6 +23,7 @@
 		505F4C838CBD83D3BC566921 /* EncryptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188FC76DD3203309DFAD89FE /* EncryptionService.swift */; };
 		546527210DB835F02D2206F0 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAA8EE7DD7E9B04F2A73F9E /* RootView.swift */; };
 		62205DA904FBA0A01A94D933 /* Font+Cadence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F6B6294A3C1CB2E316751A /* Font+Cadence.swift */; };
+		66E47B6A02039D5EAA59A594 /* InviteLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68B5385FFD55D37D1BDDA25 /* InviteLink.swift */; };
 		7B3CD51D7FDB8C62A55C6436 /* AppleSignInCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BBC771D2B140F2D9794C39 /* AppleSignInCoordinator.swift */; };
 		7C163443981FE2F21B5CC506 /* CadenceChip.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A25E13E53C9BC689C5E08E /* CadenceChip.swift */; };
 		87CF6F3328540C3DE01B8273 /* CadenceHeroCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD98C6BC4C1E4A300C950AF0 /* CadenceHeroCard.swift */; };
@@ -32,13 +35,20 @@
 		A0B10965E26138F42C677BE1 /* PhosphorSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 63BD81BDB51C7EB6DE95DB35 /* PhosphorSwift */; };
 		A1339FF7147D9D8B43A747A0 /* Supabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025A75D80144B072AD84822F /* Supabase.swift */; };
 		B113799C232C97FAEFA5EFA8 /* Color+Cadence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C259254050ABD2611807FF00 /* Color+Cadence.swift */; };
+		B87EBF4964614E10F17854ED /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A78DBB0BED3251058288220 /* UserService.swift */; };
 		BB3A401186383362C0AF512B /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE60F456B694C5CE8EA7CE /* ButtonStyles.swift */; };
 		C4319DEE040FFE4346B4B391 /* CadenceToggleRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40368D2887BCEF67D61DC725 /* CadenceToggleRow.swift */; };
 		CA7DEBC92273F86FC09DB926 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 47DC5B319847E2250B78234F /* Supabase */; };
+		CABEC207540840F49B8F3A9F /* CycleProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5857609F835CBC6454256E21 /* CycleProfileService.swift */; };
+		CBCC02A20D592DA12EA78269 /* SharingSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BFBB1E678B490913416EE7 /* SharingSettings.swift */; };
+		D13EB770524B91CBA3D57AAD /* CycleLogService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C88CCA366585843ADBA858 /* CycleLogService.swift */; };
 		DA18D83940DD16DBF4F05333 /* DesignSystemPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1E907AC7B7E11BCBD40A16 /* DesignSystemPreview.swift */; };
 		DD176EBB693A5C4E8566C9F1 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2071FB4A9FE784EDC041D4F6 /* AuthViewModel.swift */; };
 		E6044D1CD85CF9443C22194C /* CadenceSupabaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C730450BAD37724707F7C99 /* CadenceSupabaseError.swift */; };
+		E64F953D5A007688407DC859 /* CadenceUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0613D9A2FFA3DE93A79CAA6F /* CadenceUser.swift */; };
 		EDC38C42F4AC3B388C3DC3F0 /* CadenceFlowRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8262C963414151BE057B1E02 /* CadenceFlowRow.swift */; };
+		F026932B5CC0C6D5299D476F /* PartnerConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9034E82538388296E24DF3 /* PartnerConnection.swift */; };
+		F0E659CB35CBB56B8697E438 /* CycleLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966D1994827177693D6A0301 /* CycleLog.swift */; };
 		F19DE76A62850BBD09F253F7 /* CadencePartnerHeroCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59541F56BB74507B4EDE2892 /* CadencePartnerHeroCard.swift */; };
 		F7F484AB4B8546A8CEBDCDDE /* CadenceSegmentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291E4AA84C6C3B02259146C0 /* CadenceSegmentButton.swift */; };
 /* End PBXBuildFile section */
@@ -62,18 +72,24 @@
 
 /* Begin PBXFileReference section */
 		025A75D80144B072AD84822F /* Supabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Supabase.swift; sourceTree = "<group>"; };
+		0613D9A2FFA3DE93A79CAA6F /* CadenceUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceUser.swift; sourceTree = "<group>"; };
 		089F39558AB57FEA1FB9E8A2 /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fonts; path = Cadence/Fonts; sourceTree = SOURCE_ROOT; };
 		08F6B6294A3C1CB2E316751A /* Font+Cadence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Cadence.swift"; sourceTree = "<group>"; };
+		09C88CCA366585843ADBA858 /* CycleLogService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CycleLogService.swift; sourceTree = "<group>"; };
+		11BFBB1E678B490913416EE7 /* SharingSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharingSettings.swift; sourceTree = "<group>"; };
 		188FC76DD3203309DFAD89FE /* EncryptionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptionService.swift; sourceTree = "<group>"; };
 		2071FB4A9FE784EDC041D4F6 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		2747B5C0BD75EFECA1D2569B /* Cadence.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Cadence.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		291E4AA84C6C3B02259146C0 /* CadenceSegmentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceSegmentButton.swift; sourceTree = "<group>"; };
 		38A7FA0AAE246170075F11D3 /* CadenceEnergyRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceEnergyRow.swift; sourceTree = "<group>"; };
 		40368D2887BCEF67D61DC725 /* CadenceToggleRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceToggleRow.swift; sourceTree = "<group>"; };
+		40A70FF951485E8B88698EF8 /* CycleProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CycleProfile.swift; sourceTree = "<group>"; };
+		4A78DBB0BED3251058288220 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		4B43F494E0DD805B07C8237F /* CadenceGroupedCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceGroupedCard.swift; sourceTree = "<group>"; };
 		4EAA8EE7DD7E9B04F2A73F9E /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		4F456433D2A424E6A501E1CC /* CadenceUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = CadenceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		53DC5566E2688823A894040D /* CadenceTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = CadenceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5857609F835CBC6454256E21 /* CycleProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CycleProfileService.swift; sourceTree = "<group>"; };
 		59541F56BB74507B4EDE2892 /* CadencePartnerHeroCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadencePartnerHeroCard.swift; sourceTree = "<group>"; };
 		687C87BBB7F17FD021B6E102 /* CadenceAvatarCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceAvatarCircle.swift; sourceTree = "<group>"; };
 		6F7A81DEBCC515437DE56C5B /* CadenceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceApp.swift; sourceTree = "<group>"; };
@@ -81,10 +97,13 @@
 		80FFE28F1BE7617D949D0CC0 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		8262C963414151BE057B1E02 /* CadenceFlowRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceFlowRow.swift; sourceTree = "<group>"; };
 		88C3142FCD090B6F91573907 /* CadenceIconTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceIconTile.swift; sourceTree = "<group>"; };
+		8C9034E82538388296E24DF3 /* PartnerConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnerConnection.swift; sourceTree = "<group>"; };
 		8F1DE86724D4B243D0E61FDD /* CadenceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceUITests.swift; sourceTree = "<group>"; };
+		966D1994827177693D6A0301 /* CycleLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CycleLog.swift; sourceTree = "<group>"; };
 		96CCB6005D981B5BC11C8A1E /* CyclePhase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CyclePhase.swift; sourceTree = "<group>"; };
 		9880DDA2B852F0ED7E7ECC0F /* CadenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceTests.swift; sourceTree = "<group>"; };
 		998821507A17686BDC11A37A /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		9C2B6504A03AA801032735F0 /* SharedLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedLog.swift; sourceTree = "<group>"; };
 		A32DD8290358EF3C6E4A4CF4 /* CadenceTokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceTokens.swift; sourceTree = "<group>"; };
 		A7AE60F456B694C5CE8EA7CE /* ButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
 		AB51B73480AB0D7DE56A2E14 /* CadenceSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceSectionHeader.swift; sourceTree = "<group>"; };
@@ -93,6 +112,7 @@
 		C259254050ABD2611807FF00 /* Color+Cadence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Cadence.swift"; sourceTree = "<group>"; };
 		CA1E907AC7B7E11BCBD40A16 /* DesignSystemPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystemPreview.swift; sourceTree = "<group>"; };
 		CF38A57EEC9FB4FA7335F183 /* EncryptionServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptionServiceTests.swift; sourceTree = "<group>"; };
+		D68B5385FFD55D37D1BDDA25 /* InviteLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteLink.swift; sourceTree = "<group>"; };
 		DD98C6BC4C1E4A300C950AF0 /* CadenceHeroCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceHeroCard.swift; sourceTree = "<group>"; };
 		DDB227624E9820560B400EC7 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		E7A25E13E53C9BC689C5E08E /* CadenceChip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceChip.swift; sourceTree = "<group>"; };
@@ -121,6 +141,7 @@
 				81082953F1B6DDA70475C8CC /* App */,
 				5B9674EC1AA8E04B1D183A0E /* Auth */,
 				FDEC2C82C08BE089C5619D7D /* DesignSystem */,
+				E693CC2E07994C83D9F74040 /* Models */,
 				11EB37EA1F372555425F5CFE /* Services */,
 			);
 			name = Sources;
@@ -131,8 +152,11 @@
 			isa = PBXGroup;
 			children = (
 				7C730450BAD37724707F7C99 /* CadenceSupabaseError.swift */,
+				09C88CCA366585843ADBA858 /* CycleLogService.swift */,
+				5857609F835CBC6454256E21 /* CycleProfileService.swift */,
 				188FC76DD3203309DFAD89FE /* EncryptionService.swift */,
 				025A75D80144B072AD84822F /* Supabase.swift */,
+				4A78DBB0BED3251058288220 /* UserService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -221,6 +245,20 @@
 				4F456433D2A424E6A501E1CC /* CadenceUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		E693CC2E07994C83D9F74040 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0613D9A2FFA3DE93A79CAA6F /* CadenceUser.swift */,
+				966D1994827177693D6A0301 /* CycleLog.swift */,
+				40A70FF951485E8B88698EF8 /* CycleProfile.swift */,
+				D68B5385FFD55D37D1BDDA25 /* InviteLink.swift */,
+				8C9034E82538388296E24DF3 /* PartnerConnection.swift */,
+				9C2B6504A03AA801032735F0 /* SharedLog.swift */,
+				11BFBB1E678B490913416EE7 /* SharingSettings.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		FDEC2C82C08BE089C5619D7D /* DesignSystem */ = {
@@ -388,15 +426,25 @@
 				E6044D1CD85CF9443C22194C /* CadenceSupabaseError.swift in Sources */,
 				C4319DEE040FFE4346B4B391 /* CadenceToggleRow.swift in Sources */,
 				3CAA3BF8CB95C2120C64775F /* CadenceTokens.swift in Sources */,
+				E64F953D5A007688407DC859 /* CadenceUser.swift in Sources */,
 				B113799C232C97FAEFA5EFA8 /* Color+Cadence.swift in Sources */,
 				8D8902E9EDADB7F9A4E6B1F4 /* ContentView.swift in Sources */,
+				F0E659CB35CBB56B8697E438 /* CycleLog.swift in Sources */,
+				D13EB770524B91CBA3D57AAD /* CycleLogService.swift in Sources */,
 				41E84455D93A7D33D192EB96 /* CyclePhase.swift in Sources */,
+				3B39F348922FEB97AE7513F9 /* CycleProfile.swift in Sources */,
+				CABEC207540840F49B8F3A9F /* CycleProfileService.swift in Sources */,
 				DA18D83940DD16DBF4F05333 /* DesignSystemPreview.swift in Sources */,
 				9B13D3C0EE0E84BB56710141 /* EmailAuthView.swift in Sources */,
 				505F4C838CBD83D3BC566921 /* EncryptionService.swift in Sources */,
 				62205DA904FBA0A01A94D933 /* Font+Cadence.swift in Sources */,
+				66E47B6A02039D5EAA59A594 /* InviteLink.swift in Sources */,
+				F026932B5CC0C6D5299D476F /* PartnerConnection.swift in Sources */,
 				546527210DB835F02D2206F0 /* RootView.swift in Sources */,
+				289DB9133878715F139944BB /* SharedLog.swift in Sources */,
+				CBCC02A20D592DA12EA78269 /* SharingSettings.swift in Sources */,
 				A1339FF7147D9D8B43A747A0 /* Supabase.swift in Sources */,
+				B87EBF4964614E10F17854ED /* UserService.swift in Sources */,
 				4836EA65B3D0863ADC382BD0 /* WelcomeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
