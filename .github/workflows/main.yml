@@ -1,0 +1,51 @@
+name: Main
+on:
+  push:
+    branches: [main]
+
+jobs:
+  smoke-test:
+    name: Simulator Smoke Test
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Write xcconfig
+        run: |
+          mkdir -p Config
+          cat > Config/Debug.xcconfig << 'XCEOF'
+          SUPABASE_URL = ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY = ${{ secrets.SUPABASE_ANON_KEY }}
+          XCEOF
+          cp Config/Debug.xcconfig Config/Release.xcconfig
+
+      - name: Resolve packages
+        run: xcodebuild -resolvePackageDependencies -project Cadence.xcodeproj -scheme Cadence
+
+      - name: Build for simulator
+        run: |
+          xcodebuild build \
+            -project Cadence.xcodeproj \
+            -scheme Cadence \
+            -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.4' \
+            -quiet \
+            CODE_SIGN_IDENTITY=- \
+            CODE_SIGNING_ALLOWED=NO
+
+      - name: Boot simulator and launch
+        run: |
+          DEVICE_ID=$(xcrun simctl list devices available -j | python3 -c "
+          import json, sys
+          data = json.load(sys.stdin)
+          for runtime, devices in data['devices'].items():
+              if '26' in runtime and 'iOS' in runtime:
+                  for d in devices:
+                      if 'iPhone 17 Pro' in d['name']:
+                          print(d['udid']); sys.exit(0)
+          sys.exit(1)")
+          xcrun simctl boot "$DEVICE_ID" 2>/dev/null || true
+          APP_PATH=$(find ~/Library/Developer/Xcode/DerivedData -name 'Cadence.app' -path '*/Debug-iphonesimulator/*' | head -1)
+          xcrun simctl install "$DEVICE_ID" "$APP_PATH"
+          xcrun simctl launch "$DEVICE_ID" com.dineshd.cadence
+          sleep 3
+          xcrun simctl shutdown "$DEVICE_ID"

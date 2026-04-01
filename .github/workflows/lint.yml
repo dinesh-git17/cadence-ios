@@ -1,0 +1,47 @@
+name: Lint
+on:
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: lint-${{ github.head_ref }}
+  cancel-in-progress: true
+
+jobs:
+  swiftlint:
+    name: SwiftLint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: SwiftLint
+        uses: norio-nomura/action-swiftlint@3.2.1
+        with:
+          args: --strict
+
+  migration-lint:
+    name: Migration Lint
+    runs-on: ubuntu-latest
+    if: ${{ github.event.pull_request }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check migrations changed
+        id: changes
+        uses: dorny/paths-filter@v3
+        with:
+          filters: |
+            migrations:
+              - 'supabase/migrations/**'
+
+      - name: Lint migrations
+        if: steps.changes.outputs.migrations == 'true'
+        uses: supabase/setup-cli@v1
+        with:
+          version: latest
+
+      - name: Run lint
+        if: steps.changes.outputs.migrations == 'true'
+        run: supabase db lint --linked
+        env:
+          SUPABASE_DB_URL: ${{ secrets.SUPABASE_DB_URL }}

@@ -1,0 +1,52 @@
+encryption:
+  - changed-files:
+      - any-glob-to-any-file:
+          - '**/EncryptionService*'
+          - '**/Crypto*'
+
+partner-sharing:
+  - changed-files:
+      - any-glob-to-any-file:
+          - '**/Partner*'
+          - '**/SharedLog*'
+          - '**/SharingSettings*'
+
+prediction:
+  - changed-files:
+      - any-glob-to-any-file:
+          - '**/Prediction*'
+          - '**/CycleEngine*'
+
+onboarding:
+  - changed-files:
+      - any-glob-to-any-file:
+          - '**/Onboarding*'
+
+supabase:
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'supabase/**'
+          - '**/migrations/**'
+
+notifications:
+  - changed-files:
+      - any-glob-to-any-file:
+          - '**/Notification*'
+
+deep-links:
+  - changed-files:
+      - any-glob-to-any-file:
+          - '**/DeepLink*'
+          - '**/UniversalLink*'
+
+design-system:
+  - changed-files:
+      - any-glob-to-any-file:
+          - '**/Cadence+*'
+          - '**/Theme*'
+          - '**/Typography*'
+
+ci:
+  - changed-files:
+      - any-glob-to-any-file:
+          - '.github/**'

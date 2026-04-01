@@ -1,0 +1,46 @@
+name: Test
+on:
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: test-${{ github.head_ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: Unit Tests
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Write xcconfig
+        run: |
+          mkdir -p Config
+          cat > Config/Debug.xcconfig << 'XCEOF'
+          SUPABASE_URL = ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY = ${{ secrets.SUPABASE_ANON_KEY }}
+          XCEOF
+          cp Config/Debug.xcconfig Config/Release.xcconfig
+
+      - name: Resolve packages
+        run: xcodebuild -resolvePackageDependencies -project Cadence.xcodeproj -scheme Cadence
+
+      - name: Run tests
+        run: |
+          xcodebuild test \
+            -project Cadence.xcodeproj \
+            -scheme Cadence \
+            -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.4' \
+            -quiet \
+            -resultBundlePath TestResults.xcresult \
+            CODE_SIGN_IDENTITY=- \
+            CODE_SIGNING_ALLOWED=NO
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: TestResults.xcresult
+          retention-days: 7
