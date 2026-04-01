@@ -1,7 +1,7 @@
 name: Main
+# Disabled: GitHub-hosted runners lack Xcode 26. Re-enable when macos runners ship with Xcode 26+.
 on:
-  push:
-    branches: [main]
+  workflow_dispatch:
 
 jobs:
   smoke-test:

@@ -1,7 +1,7 @@
 name: Build
+# Disabled: GitHub-hosted runners lack Xcode 26. Re-enable when macos runners ship with Xcode 26+.
 on:
-  pull_request:
-    branches: [main]
+  workflow_dispatch:
 
 concurrency:
   group: build-${{ github.head_ref }}
