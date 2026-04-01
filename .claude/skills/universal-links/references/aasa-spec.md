@@ -6,8 +6,8 @@ Serve the file at **both** paths. iOS 9–10 fetched from the root; iOS 11+
 fetches from `.well-known/`. Both must return 200 with no redirect:
 
 ```
-https://cadenceapp.com/.well-known/apple-app-site-association   ← primary
-https://cadenceapp.com/apple-app-site-association               ← iOS 9/10 legacy
+https://cadence.dineshd.dev/.well-known/apple-app-site-association   ← primary
+https://cadence.dineshd.dev/apple-app-site-association               ← iOS 9/10 legacy
 ```
 
 ## Hosting Requirements
@@ -29,7 +29,7 @@ https://cadenceapp.com/apple-app-site-association               ← iOS 9/10 leg
     "details": [
       {
         "appIDs": [
-          "ABCDE12345.com.cadenceapp.ios"
+          "ABCDE12345.com.dineshd.cadence"
         ],
         "components": [
           {
@@ -39,7 +39,7 @@ https://cadenceapp.com/apple-app-site-association               ← iOS 9/10 leg
         ]
       },
       {
-        "appID": "ABCDE12345.com.cadenceapp.ios",
+        "appID": "ABCDE12345.com.dineshd.cadence",
         "paths": ["/invite/*"]
       }
     ]
@@ -58,14 +58,14 @@ Replace `ABCDE12345` with the real Team ID from the Apple Developer portal
 
 ## If You Add a Beta Bundle ID
 
-If a separate scheme with bundle ID `com.cadenceapp.ios.beta` is used for
+If a separate scheme with bundle ID `com.dineshd.cadence.beta` is used for
 internal builds, add it to the modern `appIDs` array only. You do not need a
 second legacy entry:
 
 ```json
 "appIDs": [
-  "ABCDE12345.com.cadenceapp.ios",
-  "ABCDE12345.com.cadenceapp.ios.beta"
+  "ABCDE12345.com.dineshd.cadence",
+  "ABCDE12345.com.dineshd.cadence.beta"
 ]
 ```
 
@@ -86,21 +86,21 @@ Run these before TestFlight and before App Store submission.
 
 **Fetch and inspect from your machine:**
 ```bash
-curl -sI https://cadenceapp.com/.well-known/apple-app-site-association
+curl -sI https://cadence.dineshd.dev/.well-known/apple-app-site-association
 # Expect: HTTP/2 200, content-type: application/json
 # Must NOT see: location header (redirect)
 
-curl -s https://cadenceapp.com/.well-known/apple-app-site-association | python3 -m json.tool
+curl -s https://cadence.dineshd.dev/.well-known/apple-app-site-association | python3 -m json.tool
 # Expect: valid JSON, no error
 ```
 
 **Validate with Apple's swcutil on a physical device:**
 Open Xcode → Window → Devices and Simulators → select device → open console, then
-tap a `https://cadenceapp.com/invite/anytoken` link. Look for log lines from
+tap a `https://cadence.dineshd.dev/invite/anytoken` link. Look for log lines from
 `swcd` (the shared web credentials daemon):
 ```
-swcd[...] Fetching app-site-association for cadenceapp.com
-swcd[...] App-site-association for cadenceapp.com is valid
+swcd[...] Fetching app-site-association for cadence.dineshd.dev
+swcd[...] App-site-association for cadence.dineshd.dev is valid
 ```
 
 If you see "failed to fetch" or "invalid", the AASA file or headers are wrong.

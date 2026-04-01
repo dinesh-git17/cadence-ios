@@ -573,7 +573,7 @@ struct InvitePartnerView: View {
         // Replace with real Supabase call:
         let token = UUID().uuidString
         vm.pendingInviteToken = token
-        inviteURL = URL(string: "https://cadenceapp.com/invite/\(token)")
+        inviteURL = URL(string: "https://cadence.dineshd.dev/invite/\(token)")
         isGenerating = false
     }
 }

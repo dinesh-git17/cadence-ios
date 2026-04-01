@@ -117,7 +117,7 @@ final class DeepLinkRouter: ObservableObject {
 
     private func parse(_ url: URL) -> ParsedDeepLink? {
         guard url.scheme == "https",
-              url.host == "cadenceapp.com" else { return nil }
+              url.host == "cadence.dineshd.dev" else { return nil }
         let parts = url.pathComponents   // Always starts with "/"
         // Expect: ["/" , "invite", "<token>"]
         guard parts.count == 3,

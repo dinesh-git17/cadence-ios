@@ -21,11 +21,11 @@ fire from the Safari URL bar (that always opens the browser).
 **The four-part contract iOS enforces:**
 
 1. **AASA file** — you host a JSON file at
-   `https://cadenceapp.com/.well-known/apple-app-site-association` that declares
+   `https://cadence.dineshd.dev/.well-known/apple-app-site-association` that declares
    which URL paths belong to your app.
 
 2. **Associated Domains entitlement** — your app's `.entitlements` declares it
-   claims `cadenceapp.com`.
+   claims `cadence.dineshd.dev`.
 
 3. **Apple's CDN fetch** — iOS fetches the AASA via Apple's CDN
    (`app-site-association.cdn-apple.com`), not directly from your server. This
@@ -61,13 +61,13 @@ See `references/aasa-spec.md` for the full file and hosting requirements.
   "applinks": {
     "details": [
       {
-        "appIDs": ["ABCDE12345.com.cadenceapp.ios"],
+        "appIDs": ["ABCDE12345.com.dineshd.cadence"],
         "components": [
           { "/": "/invite/*", "comment": "Partner invite deep links" }
         ]
       },
       {
-        "appID": "ABCDE12345.com.cadenceapp.ios",
+        "appID": "ABCDE12345.com.dineshd.cadence",
         "paths": ["/invite/*"]
       }
     ]
@@ -90,7 +90,7 @@ The entry in `Cadence.entitlements`:
 ```xml
 <key>com.apple.developer.associated-domains</key>
 <array>
-    <string>applinks:cadenceapp.com</string>
+    <string>applinks:cadence.dineshd.dev</string>
 </array>
 ```
 
@@ -100,8 +100,8 @@ This tells iOS to fetch the AASA directly from your server, bypassing Apple's CD
 ```xml
 <key>com.apple.developer.associated-domains</key>
 <array>
-    <string>applinks:cadenceapp.com</string>
-    <string>applinks:cadenceapp.com?mode=developer</string>
+    <string>applinks:cadence.dineshd.dev</string>
+    <string>applinks:cadence.dineshd.dev?mode=developer</string>
 </array>
 ```
 
@@ -115,14 +115,14 @@ on debug builds. It does not affect production or TestFlight behaviour.
 
 | Context | Bundle ID | AASA `appIDs` entry needed | Entitlement |
 |---|---|---|---|
-| App Store | `com.cadenceapp.ios` | `TEAMID.com.cadenceapp.ios` | `applinks:cadenceapp.com` |
-| TestFlight | `com.cadenceapp.ios` (same) | Same — no change needed | Same |
-| Debug (device) | `com.cadenceapp.ios` | Same — no change needed | Add `?mode=developer` variant |
+| App Store | `com.dineshd.cadence` | `TEAMID.com.dineshd.cadence` | `applinks:cadence.dineshd.dev` |
+| TestFlight | `com.dineshd.cadence` (same) | Same — no change needed | Same |
+| Debug (device) | `com.dineshd.cadence` | Same — no change needed | Add `?mode=developer` variant |
 | Simulator | n/a | Universal Links don't work | Use custom URL scheme for sim testing |
 
 TestFlight uses the same bundle ID as the App Store build. There is no `.beta`
 suffix unless you deliberately configure a separate scheme. If you do create a
-separate beta bundle ID (e.g. `com.cadenceapp.ios.beta`), add it to the AASA
+separate beta bundle ID (e.g. `com.dineshd.cadence.beta`), add it to the AASA
 `appIDs` array alongside the production ID.
 
 ---
@@ -191,7 +191,7 @@ final class DeepLinkRouter: ObservableObject {
     }
 
     private func parse(_ url: URL) -> DeepLink? {
-        guard url.host == "cadenceapp.com" else { return nil }
+        guard url.host == "cadence.dineshd.dev" else { return nil }
         let parts = url.pathComponents          // ["/" , "invite", "<token>"]
         guard parts.count == 3,
               parts[1] == "invite",
@@ -300,7 +300,7 @@ The Edge Function APNs payload must include `deep_link` in the custom payload:
 ```json
 {
   "aps": { "alert": { "title": "...", "body": "..." }, "sound": "default" },
-  "deep_link": "https://cadenceapp.com/today"
+  "deep_link": "https://cadence.dineshd.dev/today"
 }
 ```
 
@@ -315,13 +315,13 @@ the correct behaviour for log reminders and phase change alerts.
 
 Read `references/aasa-spec.md` → "Verification" section for full tool commands.
 
-- [ ] AASA reachable: `curl -I https://cadenceapp.com/.well-known/apple-app-site-association`
+- [ ] AASA reachable: `curl -I https://cadence.dineshd.dev/.well-known/apple-app-site-association`
       → HTTP 200, `Content-Type: application/json`, no redirects
 - [ ] AASA JSON is valid and matches the spec in `references/aasa-spec.md`
-- [ ] Validate with Apple's tool: `swcutil verify --domain cadenceapp.com` (run on
+- [ ] Validate with Apple's tool: `swcutil verify --domain cadence.dineshd.dev` (run on
       a physical device via Xcode → Devices console, or use the AASA validator at
       https://yurl.chayev.com or branch.io/resources/aasa-validator)
-- [ ] Physical device test: tap an `https://cadenceapp.com/invite/test123` link
+- [ ] Physical device test: tap an `https://cadence.dineshd.dev/invite/test123` link
       in iMessage — must open Cadence, not Safari
 - [ ] Not-installed test: install nothing, tap link — must redirect to App Store
 - [ ] TestFlight build test: install TestFlight build, tap link — same behaviour

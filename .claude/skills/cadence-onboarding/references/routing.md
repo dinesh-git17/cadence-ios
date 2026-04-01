@@ -136,7 +136,7 @@ Supabase (e.g. they completed up to Step 3 last time), the final
 ```swift
 // In CadenceApp.swift — handle incoming deep link before onboarding starts:
 .onOpenURL { url in
-    // cadenceapp.com/invite/<token>  or  cadence://invite?token=<token>
+    // cadence.dineshd.dev/invite/<token>  or  cadence://invite?token=<token>
     if let token = extractInviteToken(from: url) {
         // Inject into OnboardingViewModel before the flow renders
         // Use a shared AppEnvironment or a @AppStorage key as the hand-off:
