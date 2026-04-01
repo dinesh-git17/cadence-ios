@@ -26,10 +26,10 @@ BUILD_CMD=""
 
 if [[ -n "$WORKSPACE" ]]; then
     BUILD_TARGET="$WORKSPACE"
-    BUILD_CMD="xcodebuild -workspace \"$WORKSPACE\" -scheme Cadence -destination 'platform=iOS Simulator,name=iPhone 16' -quiet"
+    BUILD_CMD="xcodebuild -workspace \"$WORKSPACE\" -scheme Cadence -destination 'platform=iOS Simulator,name=iPhone 17 Pro' -quiet"
 elif [[ -n "$PROJECT" ]]; then
     BUILD_TARGET="$PROJECT"
-    BUILD_CMD="xcodebuild -project \"$PROJECT\" -scheme Cadence -destination 'platform=iOS Simulator,name=iPhone 16' -quiet"
+    BUILD_CMD="xcodebuild -project \"$PROJECT\" -scheme Cadence -destination 'platform=iOS Simulator,name=iPhone 17 Pro' -quiet"
 elif [[ -f "$PACKAGE" ]]; then
     BUILD_TARGET="$PACKAGE"
     BUILD_CMD="swift build --quiet"
@@ -63,9 +63,9 @@ hook_pass "Build succeeded"
 if [[ -f "$PACKAGE" ]]; then
     TEST_CMD="swift test --quiet"
 elif [[ -n "$WORKSPACE" ]]; then
-    TEST_CMD="xcodebuild -workspace \"$WORKSPACE\" -scheme Cadence -destination 'platform=iOS Simulator,name=iPhone 16' -quiet test"
+    TEST_CMD="xcodebuild -workspace \"$WORKSPACE\" -scheme Cadence -destination 'platform=iOS Simulator,name=iPhone 17 Pro' -quiet test"
 elif [[ -n "$PROJECT" ]]; then
-    TEST_CMD="xcodebuild -project \"$PROJECT\" -scheme Cadence -destination 'platform=iOS Simulator,name=iPhone 16' -quiet test"
+    TEST_CMD="xcodebuild -project \"$PROJECT\" -scheme Cadence -destination 'platform=iOS Simulator,name=iPhone 17 Pro' -quiet test"
 else
     hook_skip "No test target detected"
     exit 0

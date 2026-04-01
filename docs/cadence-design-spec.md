@@ -670,7 +670,7 @@ Selected day card: 16pt margins, Standard Card, appears between grid and legend
   Log chips: HStack, flex-wrap, 5pt gaps
 
 Legend: 16pt margins, 8pt top margin, horizontal HStack
-  
+
 Insights section:
   Section header: Label style
   2-column grid: 6pt gap

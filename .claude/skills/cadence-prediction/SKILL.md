@@ -124,11 +124,11 @@ struct PhaseInterval: Equatable {
     let phase: CyclePhase
     let startDate: Date          // Inclusive
     let endDate: Date            // Exclusive — first day of NEXT phase
-    
+
     var dateInterval: DateInterval {
         DateInterval(start: startDate, end: endDate)
     }
-    
+
     /// True when the phase has zero calendar duration.
     /// Short cycles can produce a zero-duration follicular phase; skip
     /// rendering these but keep them in the model.
@@ -140,7 +140,7 @@ enum PredictionConfidence {
     case seed    // 0 completed cycles — onboarding data only. Label: "Estimated"
     case low     // 1–2 completed cycles — show low-confidence indicator
     case high    // 3+ completed cycles — full display, no indicator
-    
+
     var requiresLabel: Bool { self != .high }
     var localizedLabel: String {
         switch self {
