@@ -30,6 +30,9 @@ targets:
     platform: iOS
     sources:
       - path: Cadence/Sources
+      - path: Cadence/Fonts
+        buildPhase: resources
+        type: folder
     resources:
       - path: Cadence/Resources
     entitlements:
@@ -50,6 +53,11 @@ targets:
         CFBundleDisplayName: Cadence
         SUPABASE_URL: $(SUPABASE_URL)
         SUPABASE_ANON_KEY: $(SUPABASE_ANON_KEY)
+        UIAppFonts:
+          - PlayfairDisplay-Regular.ttf
+          - PlayfairDisplay-Italic.ttf
+          - DMSans-Regular.ttf
+          - DMSans-Medium.ttf
 
   CadenceTests:
     type: bundle.unit-test
