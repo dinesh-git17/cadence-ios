@@ -1,3 +1,4 @@
+import PhosphorSwift
 import SwiftUI
 
 struct EmailAuthView: View {
@@ -6,9 +7,18 @@ struct EmailAuthView: View {
 
     @State private var email = ""
     @State private var password = ""
+    @State private var confirmPassword = ""
     @State private var isSignUp = false
     @State private var isForgotPassword = false
     @State private var passwordVisible = false
+    @State private var confirmPasswordVisible = false
+    @State private var errorTrigger = 0
+
+    @FocusState private var focusedField: Field?
+
+    private enum Field: Hashable {
+        case email, password, confirmPassword
+    }
 
     var body: some View {
         NavigationStack {
@@ -32,52 +42,70 @@ struct EmailAuthView: View {
             .onChange(of: authViewModel.isAuthenticated) { _, authenticated in
                 if authenticated { dismiss() }
             }
+            .onChange(of: authViewModel.error?.errorDescription) { _, description in
+                if description != nil { errorTrigger += 1 }
+            }
+            .sensoryFeedback(.error, trigger: errorTrigger)
+            .sensoryFeedback(.success, trigger: authViewModel.isAuthenticated)
         }
-        .presentationDetents([.large])
+        .presentationDetents(isSignUp ? [.large] : [.medium, .large])
         .presentationBackground(Color.cadenceBgBase)
+        .task { focusedField = .email }
     }
+
+    // MARK: - Form Content
 
     private var formContent: some View {
         VStack(spacing: CadenceSpacing.xl) {
             header
-            if isForgotPassword {
-                emailField
-            } else {
-                VStack(spacing: CadenceSpacing.md) {
-                    emailField
-                    passwordField
-                }
-            }
+            fieldStack
             statusMessage
             submitButton
             bottomActions
         }
     }
 
+    private var fieldStack: some View {
+        VStack(spacing: CadenceSpacing.md) {
+            emailField
+            emailHint
+            if !isForgotPassword {
+                passwordField
+                passwordHint
+                if isSignUp {
+                    confirmPasswordField
+                    confirmPasswordHint
+                }
+            }
+        }
+    }
+
     // MARK: - Header
 
-    private var headerTitle: String {
-        if isForgotPassword { return "Reset password" }
-        return isSignUp ? "Create account" : "Sign in"
-    }
-
-    private var headerSubtitle: String {
-        if isForgotPassword { return "Enter your email and we'll send you a reset link." }
-        return isSignUp
-            ? "Enter your email and choose a password."
-            : "Enter your email and password."
-    }
-
     private var header: some View {
-        VStack(alignment: .leading, spacing: CadenceSpacing.sm) {
-            Text(headerTitle)
-                .font(.cadenceTitleMedium)
-                .foregroundColor(.cadenceTextPrimary)
-            Text(headerSubtitle)
-                .font(.cadenceBodySmall)
-                .foregroundColor(.cadenceTextSecondary)
+        let title = isForgotPassword ? "Reset password" : (isSignUp ? "Create account" : "Sign in")
+        let subtitle = isForgotPassword
+            ? "Enter your email and we'll send you a reset link."
+            : (isSignUp ? "Enter your email and choose a password." : "Enter your email and password.")
+        return VStack(alignment: .leading, spacing: CadenceSpacing.sm) {
+            Text(title).font(.cadenceTitleMedium).foregroundColor(.cadenceTextPrimary)
+            Text(subtitle).font(.cadenceBodySmall).foregroundColor(.cadenceTextSecondary)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
+    }
+
+    // MARK: - Validation
+
+    private var submitDisabled: Bool {
+        if authViewModel.isLoading { return true }
+        if isForgotPassword { return !EmailValidator.isValid(email) }
+        if isSignUp {
+            return !EmailValidator.isValid(email)
+                || password.count < 6
+                || confirmPassword.isEmpty
+                || password != confirmPassword
+        }
+        return !EmailValidator.isValid(email) || password.count < 6
     }
 
     // MARK: - Status Message
@@ -85,38 +113,32 @@ struct EmailAuthView: View {
     @ViewBuilder
     private var statusMessage: some View {
         if authViewModel.confirmationPending {
-            Text("Check your email to confirm your account.")
-                .font(.cadenceCaptionSmall)
-                .foregroundColor(.cadencePrimary)
-                .frame(maxWidth: .infinity, alignment: .leading)
+            statusText("We sent a confirmation link to \(email). Check your inbox to get started.", isError: false)
         } else if authViewModel.resetEmailSent {
-            Text("Check your email for a password reset link.")
-                .font(.cadenceCaptionSmall)
-                .foregroundColor(.cadencePrimary)
-                .frame(maxWidth: .infinity, alignment: .leading)
+            statusText("We sent a reset link to \(email). Check your inbox.", isError: false)
         } else if let error = authViewModel.error {
-            Text(error.localizedDescription)
-                .font(.cadenceCaptionSmall)
-                .foregroundColor(.cadenceError)
-                .frame(maxWidth: .infinity, alignment: .leading)
+            statusText(error.localizedDescription, isError: true)
         }
+    }
+
+    private func statusText(_ message: String, isError: Bool) -> some View {
+        Text(message)
+            .font(.cadenceCaptionSmall)
+            .foregroundColor(isError ? .cadenceError : .cadencePrimary)
+            .frame(maxWidth: .infinity, alignment: .leading)
     }
 
     // MARK: - Submit
 
-    private var submitButtonLabel: String {
-        if isForgotPassword { return "Send reset link" }
-        return isSignUp ? "Create account" : "Sign in"
-    }
-
-    private var submitDisabled: Bool {
-        if isForgotPassword { return email.isEmpty }
-        return email.isEmpty || password.count < 6
-    }
-
     private var submitButton: some View {
-        Button(submitButtonLabel) {
+        Button {
             Task { await submit() }
+        } label: {
+            if authViewModel.isLoading {
+                ProgressView().tint(.white)
+            } else {
+                Text(isForgotPassword ? "Send reset link" : (isSignUp ? "Create account" : "Sign in"))
+            }
         }
         .buttonStyle(PrimaryButtonStyle())
         .disabled(submitDisabled)
@@ -136,27 +158,34 @@ struct EmailAuthView: View {
                 .font(.cadenceBodySmall)
                 .foregroundColor(.cadencePrimary)
             } else {
-                if !isSignUp {
-                    Button("Forgot password?") {
-                        withAnimation {
-                            isForgotPassword = true
-                            clearStatus()
-                        }
-                    }
-                    .font(.cadenceBodySmall)
-                    .foregroundColor(.cadenceTextTertiary)
-                }
+                forgotAndToggleActions
+            }
+        }
+        .disabled(authViewModel.isLoading)
+    }
 
-                Button(isSignUp
-                    ? "Already have an account? Sign in"
-                    : "Don't have an account? Create one"
-                ) {
-                    withAnimation { isSignUp.toggle() }
-                    clearStatus()
+    private var forgotAndToggleActions: some View {
+        Group {
+            if !isSignUp {
+                Button("Forgot password?") {
+                    withAnimation {
+                        isForgotPassword = true
+                        clearStatus()
+                    }
                 }
                 .font(.cadenceBodySmall)
-                .foregroundColor(.cadencePrimary)
+                .foregroundColor(.cadenceTextTertiary)
             }
+
+            Button(isSignUp
+                ? "Already have an account? Sign in"
+                : "Don't have an account? Create one"
+            ) {
+                withAnimation { isSignUp.toggle() }
+                clearStatus()
+            }
+            .font(.cadenceBodySmall)
+            .foregroundColor(.cadencePrimary)
         }
     }
 
@@ -174,53 +203,124 @@ struct EmailAuthView: View {
         .textContentType(.emailAddress)
         .autocorrectionDisabled()
         .textInputAutocapitalization(.never)
-        .padding(.horizontal, CadenceSpacing.md)
-        .padding(.vertical, CadenceSpacing.md)
-        .background(Color.cadenceBgWarm)
-        .clipShape(RoundedRectangle(cornerRadius: CadenceRadius.md))
-        .overlay(
-            RoundedRectangle(cornerRadius: CadenceRadius.md)
-                .stroke(Color.cadenceBorderDefault, lineWidth: 0.5)
-        )
+        .submitLabel(.next)
+        .focused($focusedField, equals: .email)
+        .onSubmit { focusedField = .password }
+        .modifier(FieldContainerStyle())
+    }
+
+    @ViewBuilder
+    private var emailHint: some View {
+        if !email.isEmpty, !EmailValidator.isValid(email) {
+            Text("Enter a valid email address.")
+                .font(.cadenceCaptionSmall)
+                .foregroundColor(.cadenceTextTertiary)
+                .frame(maxWidth: .infinity, alignment: .leading)
+        }
     }
 
     private var passwordField: some View {
         HStack(spacing: CadenceSpacing.sm) {
-            Group {
-                if passwordVisible {
-                    TextField(
-                        "Password",
-                        text: $password,
-                        prompt: Text("Password").foregroundColor(.cadenceTextTertiary.opacity(0.6))
-                    )
-                } else {
-                    SecureField(
-                        "Password",
-                        text: $password,
-                        prompt: Text("Password").foregroundColor(.cadenceTextTertiary.opacity(0.6))
-                    )
-                }
-            }
-            .font(.cadenceBodyMedium)
-            .foregroundColor(.cadenceTextPrimary)
-            .textContentType(isSignUp ? .newPassword : .password)
+            passwordInput
+            revealToggle($passwordVisible)
+        }
+        .modifier(FieldContainerStyle())
+    }
 
-            Button {
-                passwordVisible.toggle()
-            } label: {
-                Image(systemName: passwordVisible ? "eye.slash" : "eye")
-                    .font(.cadenceBodySmall)
-                    .foregroundColor(.cadenceTextTertiary)
+    private var passwordInput: some View {
+        Group {
+            if passwordVisible {
+                TextField(
+                    "Password",
+                    text: $password,
+                    prompt: Text("Password").foregroundColor(.cadenceTextTertiary.opacity(0.6))
+                )
+            } else {
+                SecureField(
+                    "Password",
+                    text: $password,
+                    prompt: Text("Password").foregroundColor(.cadenceTextTertiary.opacity(0.6))
+                )
             }
         }
-        .padding(.horizontal, CadenceSpacing.md)
-        .padding(.vertical, CadenceSpacing.md)
-        .background(Color.cadenceBgWarm)
-        .clipShape(RoundedRectangle(cornerRadius: CadenceRadius.md))
-        .overlay(
-            RoundedRectangle(cornerRadius: CadenceRadius.md)
-                .stroke(Color.cadenceBorderDefault, lineWidth: 0.5)
-        )
+        .font(.cadenceBodyMedium)
+        .foregroundColor(.cadenceTextPrimary)
+        .textContentType(isSignUp ? .newPassword : .password)
+        .submitLabel(isSignUp ? .next : .go)
+        .focused($focusedField, equals: .password)
+        .onSubmit {
+            if isSignUp {
+                focusedField = .confirmPassword
+            } else {
+                Task { await submit() }
+            }
+        }
+    }
+
+    private var passwordHint: some View {
+        Text("At least 6 characters")
+            .font(.cadenceCaptionSmall)
+            .foregroundColor(password.count >= 6 ? .cadenceSuccess : .cadenceTextTertiary)
+            .frame(maxWidth: .infinity, alignment: .leading)
+    }
+
+    private var confirmPasswordField: some View {
+        HStack(spacing: CadenceSpacing.sm) {
+            confirmPasswordInput
+            revealToggle($confirmPasswordVisible)
+        }
+        .modifier(FieldContainerStyle())
+    }
+
+    private var confirmPasswordInput: some View {
+        Group {
+            if confirmPasswordVisible {
+                TextField(
+                    "Confirm password",
+                    text: $confirmPassword,
+                    prompt: Text("Confirm password")
+                        .foregroundColor(.cadenceTextTertiary.opacity(0.6))
+                )
+            } else {
+                SecureField(
+                    "Confirm password",
+                    text: $confirmPassword,
+                    prompt: Text("Confirm password")
+                        .foregroundColor(.cadenceTextTertiary.opacity(0.6))
+                )
+            }
+        }
+        .font(.cadenceBodyMedium)
+        .foregroundColor(.cadenceTextPrimary)
+        .textContentType(.newPassword)
+        .submitLabel(.go)
+        .focused($focusedField, equals: .confirmPassword)
+        .onSubmit { Task { await submit() } }
+    }
+
+    @ViewBuilder
+    private var confirmPasswordHint: some View {
+        if !confirmPassword.isEmpty, password != confirmPassword {
+            Text("Passwords do not match.")
+                .font(.cadenceCaptionSmall)
+                .foregroundColor(.cadenceError)
+                .frame(maxWidth: .infinity, alignment: .leading)
+        }
+    }
+
+    // MARK: - Shared Helpers
+
+    private func revealToggle(_ visible: Binding<Bool>) -> some View {
+        Button {
+            visible.wrappedValue.toggle()
+        } label: {
+            (visible.wrappedValue ? Ph.eyeSlash.regular : Ph.eye.regular)
+                .renderingMode(.template)
+                .frame(width: 18, height: 18)
+                .foregroundColor(.cadenceTextTertiary)
+        }
+        .frame(minWidth: 44)
+        .contentShape(Rectangle())
     }
 
     // MARK: - Actions
@@ -228,26 +328,33 @@ struct EmailAuthView: View {
     private func submit() async {
         if isForgotPassword {
             await authViewModel.resetPassword(email: email)
-            if authViewModel.resetEmailSent {
-                try? await Task.sleep(for: .seconds(2))
-                withAnimation {
-                    isForgotPassword = false
-                }
-            }
         } else if isSignUp {
             await authViewModel.signUpWithEmail(email: email, password: password)
-            if authViewModel.confirmationPending {
-                try? await Task.sleep(for: .seconds(2))
-                withAnimation { isSignUp = false }
-            }
         } else {
             await authViewModel.signInWithEmail(email: email, password: password)
         }
     }
 
     private func clearStatus() {
-        authViewModel.error = nil
+        authViewModel.clearError()
         authViewModel.confirmationPending = false
         authViewModel.resetEmailSent = false
+        confirmPassword = ""
+    }
+}
+
+// MARK: - Field Container
+
+private struct FieldContainerStyle: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .padding(.horizontal, CadenceSpacing.md)
+            .padding(.vertical, CadenceSpacing.md)
+            .background(Color.cadenceBgWarm)
+            .clipShape(RoundedRectangle(cornerRadius: CadenceRadius.md))
+            .overlay(
+                RoundedRectangle(cornerRadius: CadenceRadius.md)
+                    .stroke(Color.cadenceBorderDefault, lineWidth: 0.5)
+            )
     }
 }

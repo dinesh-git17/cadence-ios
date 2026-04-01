@@ -1,10 +1,12 @@
 import AuthenticationServices
+import PhosphorSwift
 import SwiftUI
 
 struct WelcomeView: View {
     @Bindable var authViewModel: AuthViewModel
 
     @State private var showEmailAuth = false
+    @State private var errorTrigger = 0
 
     var body: some View {
         ZStack {
@@ -13,6 +15,14 @@ struct WelcomeView: View {
             content
         }
         .ignoresSafeArea(.keyboard)
+        .sheet(isPresented: $showEmailAuth) {
+            EmailAuthView(authViewModel: authViewModel)
+        }
+        .onChange(of: authViewModel.error?.errorDescription) { _, description in
+            if description != nil { errorTrigger += 1 }
+        }
+        .sensoryFeedback(.error, trigger: errorTrigger)
+        .sensoryFeedback(.success, trigger: authViewModel.isAuthenticated)
     }
 
     // MARK: - Background Decoration
@@ -55,6 +65,7 @@ struct WelcomeView: View {
         .padding(.horizontal, CadenceSpacing.xl)
         .padding(.top, CadenceSpacing.xxl)
         .padding(.bottom, CadenceSpacing.lg)
+        .ignoresSafeArea(.keyboard)
     }
 
     private var wordmark: some View {
@@ -102,17 +113,39 @@ struct WelcomeView: View {
 
     private var authStack: some View {
         VStack(spacing: CadenceSpacing.md) {
-            SignInWithAppleButton(.continue) { _ in
-                // Request configuration handled by the coordinator
-            } onCompletion: { _ in
-                // Completion handled by the coordinator via delegate
+            appleSignInButton
+            divider
+            emailButton
+
+            if let error = authViewModel.error {
+                Text(error.localizedDescription)
+                    .font(.cadenceCaptionSmall)
+                    .foregroundColor(.cadenceError)
+                    .multilineTextAlignment(.center)
             }
-            .signInWithAppleButtonStyle(.black)
-            .frame(maxWidth: .infinity)
-            .frame(height: 48)
-            .clipShape(RoundedRectangle(cornerRadius: CadenceRadius.lg))
-            .overlay {
-                // Transparent button overlay that triggers the actual auth flow
+
+            trustSignal
+            footer
+        }
+    }
+
+    private var appleSignInButton: some View {
+        SignInWithAppleButton(.continue) { _ in
+        } onCompletion: { _ in
+        }
+        .signInWithAppleButtonStyle(.black)
+        .frame(maxWidth: .infinity)
+        .frame(height: 48)
+        .clipShape(RoundedRectangle(cornerRadius: CadenceRadius.lg))
+        .overlay {
+            if authViewModel.isLoading {
+                ProgressView()
+                    .tint(.white)
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 48)
+                    .background(Color.cadenceSurfaceDark.opacity(0.7))
+                    .clipShape(RoundedRectangle(cornerRadius: CadenceRadius.lg))
+            } else {
                 Button {
                     Task { await authViewModel.signInWithApple() }
                 } label: {
@@ -122,26 +155,15 @@ struct WelcomeView: View {
                 .frame(height: 48)
                 .accessibilityLabel("Continue with Apple")
             }
-
-            divider
-
-            Button("Continue with Email") {
-                showEmailAuth = true
-            }
-            .buttonStyle(GhostButtonStyle())
-
-            if let error = authViewModel.error {
-                Text(error.localizedDescription)
-                    .font(.cadenceCaptionSmall)
-                    .foregroundColor(.cadenceError)
-                    .multilineTextAlignment(.center)
-            }
-
-            footer
         }
-        .sheet(isPresented: $showEmailAuth) {
-            EmailAuthView(authViewModel: authViewModel)
+    }
+
+    private var emailButton: some View {
+        Button("Continue with Email") {
+            showEmailAuth = true
         }
+        .buttonStyle(GhostButtonStyle())
+        .disabled(authViewModel.isLoading)
     }
 
     private var divider: some View {
@@ -155,6 +177,18 @@ struct WelcomeView: View {
             Rectangle()
                 .fill(Color.cadenceBorderDefault)
                 .frame(height: 0.5)
+        }
+    }
+
+    private var trustSignal: some View {
+        HStack(spacing: CadenceSpacing.xs) {
+            Ph.shieldCheck.regular
+                .renderingMode(.template)
+                .frame(width: 12, height: 12)
+                .foregroundColor(.cadenceTextTertiary)
+            Text("Your data is encrypted on-device.")
+                .font(.cadenceCaptionSmall)
+                .foregroundColor(.cadenceTextTertiary)
         }
     }
 

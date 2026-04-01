@@ -12,7 +12,6 @@
 		1CDF3EA45BA0A6C6C8472819 /* CadenceGroupedCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B43F494E0DD805B07C8237F /* CadenceGroupedCard.swift */; };
 		22C6ABA7F947A308F8D6B5A6 /* CadenceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7A81DEBCC515437DE56C5B /* CadenceApp.swift */; };
 		23B2C530D7B10241D769FE6F /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = 089F39558AB57FEA1FB9E8A2 /* Fonts */; };
-		D4E5F67890ABCDEF12345678 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8A1B2C3D4E5F67890ABCDEF /* Assets.xcassets */; };
 		289DB9133878715F139944BB /* SharedLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2B6504A03AA801032735F0 /* SharedLog.swift */; };
 		28E458EF554469DF6A804BC5 /* CadenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9880DDA2B852F0ED7E7ECC0F /* CadenceTests.swift */; };
 		3807E0B55E291692C14D199F /* CadenceIconTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C3142FCD090B6F91573907 /* CadenceIconTile.swift */; };
@@ -31,11 +30,11 @@
 		8D8902E9EDADB7F9A4E6B1F4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE12E0610D52C4F727FAAFFD /* ContentView.swift */; };
 		96B6F59E748B0E03EC63EB82 /* CadenceAvatarCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687C87BBB7F17FD021B6E102 /* CadenceAvatarCircle.swift */; };
 		9B13D3C0EE0E84BB56710141 /* EmailAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD52009B9D9407C2821907F4 /* EmailAuthView.swift */; };
-		A1C2D3E4F5061728394A5B6C /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D3E4F50617283940A5B6C7 /* ResetPasswordView.swift */; };
 		9B738BA7E45D579C2382F74D /* CadenceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1DE86724D4B243D0E61FDD /* CadenceUITests.swift */; };
 		9F2C7F538E1143A1A786813D /* CadenceProgressDots.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC10C2DE737B270E96193308 /* CadenceProgressDots.swift */; };
 		A0B10965E26138F42C677BE1 /* PhosphorSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 63BD81BDB51C7EB6DE95DB35 /* PhosphorSwift */; };
 		A1339FF7147D9D8B43A747A0 /* Supabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025A75D80144B072AD84822F /* Supabase.swift */; };
+		A1C2D3E4F5061728394A5B6C /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D3E4F50617283940A5B6C7 /* ResetPasswordView.swift */; };
 		B113799C232C97FAEFA5EFA8 /* Color+Cadence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C259254050ABD2611807FF00 /* Color+Cadence.swift */; };
 		B87EBF4964614E10F17854ED /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A78DBB0BED3251058288220 /* UserService.swift */; };
 		BB3A401186383362C0AF512B /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE60F456B694C5CE8EA7CE /* ButtonStyles.swift */; };
@@ -44,6 +43,7 @@
 		CABEC207540840F49B8F3A9F /* CycleProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5857609F835CBC6454256E21 /* CycleProfileService.swift */; };
 		CBCC02A20D592DA12EA78269 /* SharingSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BFBB1E678B490913416EE7 /* SharingSettings.swift */; };
 		D13EB770524B91CBA3D57AAD /* CycleLogService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C88CCA366585843ADBA858 /* CycleLogService.swift */; };
+		D4E5F67890ABCDEF12345678 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8A1B2C3D4E5F67890ABCDEF /* Assets.xcassets */; };
 		DA18D83940DD16DBF4F05333 /* DesignSystemPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1E907AC7B7E11BCBD40A16 /* DesignSystemPreview.swift */; };
 		DD176EBB693A5C4E8566C9F1 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2071FB4A9FE784EDC041D4F6 /* AuthViewModel.swift */; };
 		E6044D1CD85CF9443C22194C /* CadenceSupabaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C730450BAD37724707F7C99 /* CadenceSupabaseError.swift */; };
@@ -52,6 +52,7 @@
 		F026932B5CC0C6D5299D476F /* PartnerConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9034E82538388296E24DF3 /* PartnerConnection.swift */; };
 		F0E659CB35CBB56B8697E438 /* CycleLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966D1994827177693D6A0301 /* CycleLog.swift */; };
 		F19DE76A62850BBD09F253F7 /* CadencePartnerHeroCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59541F56BB74507B4EDE2892 /* CadencePartnerHeroCard.swift */; };
+		F52A452F9BDD5B7CFB0A6687 /* EmailValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456F4964B446B523B90AD80A /* EmailValidator.swift */; };
 		F7F484AB4B8546A8CEBDCDDE /* CadenceSegmentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291E4AA84C6C3B02259146C0 /* CadenceSegmentButton.swift */; };
 /* End PBXBuildFile section */
 
@@ -76,7 +77,6 @@
 		025A75D80144B072AD84822F /* Supabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Supabase.swift; sourceTree = "<group>"; };
 		0613D9A2FFA3DE93A79CAA6F /* CadenceUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceUser.swift; sourceTree = "<group>"; };
 		089F39558AB57FEA1FB9E8A2 /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fonts; path = Cadence/Fonts; sourceTree = SOURCE_ROOT; };
-		F8A1B2C3D4E5F67890ABCDEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Cadence/Resources/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		08F6B6294A3C1CB2E316751A /* Font+Cadence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Cadence.swift"; sourceTree = "<group>"; };
 		09C88CCA366585843ADBA858 /* CycleLogService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CycleLogService.swift; sourceTree = "<group>"; };
 		11BFBB1E678B490913416EE7 /* SharingSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharingSettings.swift; sourceTree = "<group>"; };
@@ -87,6 +87,7 @@
 		38A7FA0AAE246170075F11D3 /* CadenceEnergyRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceEnergyRow.swift; sourceTree = "<group>"; };
 		40368D2887BCEF67D61DC725 /* CadenceToggleRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceToggleRow.swift; sourceTree = "<group>"; };
 		40A70FF951485E8B88698EF8 /* CycleProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CycleProfile.swift; sourceTree = "<group>"; };
+		456F4964B446B523B90AD80A /* EmailValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EmailValidator.swift; path = Cadence/Sources/Auth/EmailValidator.swift; sourceTree = SOURCE_ROOT; };
 		4A78DBB0BED3251058288220 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		4B43F494E0DD805B07C8237F /* CadenceGroupedCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceGroupedCard.swift; sourceTree = "<group>"; };
 		4EAA8EE7DD7E9B04F2A73F9E /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -110,8 +111,8 @@
 		A32DD8290358EF3C6E4A4CF4 /* CadenceTokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceTokens.swift; sourceTree = "<group>"; };
 		A7AE60F456B694C5CE8EA7CE /* ButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
 		AB51B73480AB0D7DE56A2E14 /* CadenceSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceSectionHeader.swift; sourceTree = "<group>"; };
-		BC10C2DE737B270E96193308 /* CadenceProgressDots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceProgressDots.swift; sourceTree = "<group>"; };
 		B2D3E4F50617283940A5B6C7 /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
+		BC10C2DE737B270E96193308 /* CadenceProgressDots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceProgressDots.swift; sourceTree = "<group>"; };
 		BD52009B9D9407C2821907F4 /* EmailAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailAuthView.swift; sourceTree = "<group>"; };
 		C259254050ABD2611807FF00 /* Color+Cadence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Cadence.swift"; sourceTree = "<group>"; };
 		CA1E907AC7B7E11BCBD40A16 /* DesignSystemPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystemPreview.swift; sourceTree = "<group>"; };
@@ -122,6 +123,7 @@
 		E7A25E13E53C9BC689C5E08E /* CadenceChip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceChip.swift; sourceTree = "<group>"; };
 		EE12E0610D52C4F727FAAFFD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F6BBC771D2B140F2D9794C39 /* AppleSignInCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleSignInCoordinator.swift; sourceTree = "<group>"; };
+		F8A1B2C3D4E5F67890ABCDEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Cadence/Resources/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +226,7 @@
 				374814B8ACA93D26517161EA /* Config */,
 				101C4A96CD1B541BD4BF25D3 /* Sources */,
 				ADFE63F9A7B11522B6C8E81A /* Products */,
+				456F4964B446B523B90AD80A /* EmailValidator.swift */,
 			);
 			sourceTree = "<group>";
 		};
@@ -454,6 +457,7 @@
 				A1339FF7147D9D8B43A747A0 /* Supabase.swift in Sources */,
 				B87EBF4964614E10F17854ED /* UserService.swift in Sources */,
 				4836EA65B3D0863ADC382BD0 /* WelcomeView.swift in Sources */,
+				F52A452F9BDD5B7CFB0A6687 /* EmailValidator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,7 +13,6 @@ final class AuthViewModel {
     var passwordRecoveryActive = false
 
     private var authStateTask: Task<Void, Never>?
-    private var dismissTask: Task<Void, Never>?
     private let appleCoordinator = AppleSignInCoordinator()
 
     var isAuthenticated: Bool {
@@ -58,17 +57,16 @@ final class AuthViewModel {
             let session = try await appleCoordinator.signIn()
             self.session = session
         } catch let err as CadenceSupabaseError {
-            error = err
-            scheduleDismiss()
+            setError(err)
         } catch {
-            self.error = .unknown(underlying: error)
-            scheduleDismiss()
+            setError(.unknown(underlying: error))
         }
     }
 
     // MARK: - Email Auth
 
     func signInWithEmail(email: String, password: String) async {
+        let email = email.trimmingCharacters(in: .whitespacesAndNewlines)
         isLoading = true
         error = nil
         defer { isLoading = false }
@@ -78,12 +76,12 @@ final class AuthViewModel {
                 password: password
             )
         } catch {
-            self.error = CadenceSupabaseError.from(error)
-            scheduleDismiss()
+            setError(CadenceSupabaseError.from(error))
         }
     }
 
     func signUpWithEmail(email: String, password: String) async {
+        let email = email.trimmingCharacters(in: .whitespacesAndNewlines)
         isLoading = true
         error = nil
         confirmationPending = false
@@ -97,17 +95,16 @@ final class AuthViewModel {
             )
             if response.session == nil {
                 confirmationPending = true
-                scheduleDismiss()
             }
         } catch {
-            self.error = CadenceSupabaseError.from(error)
-            scheduleDismiss()
+            setError(CadenceSupabaseError.from(error))
         }
     }
 
     // MARK: - Password Reset
 
     func resetPassword(email: String) async {
+        let email = email.trimmingCharacters(in: .whitespacesAndNewlines)
         isLoading = true
         error = nil
         resetEmailSent = false
@@ -119,10 +116,8 @@ final class AuthViewModel {
                 redirectTo: redirectURL
             )
             resetEmailSent = true
-            scheduleDismiss()
         } catch {
-            self.error = CadenceSupabaseError.from(error)
-            scheduleDismiss()
+            setError(CadenceSupabaseError.from(error))
         }
     }
 
@@ -136,22 +131,19 @@ final class AuthViewModel {
             )
             passwordRecoveryActive = false
         } catch {
-            self.error = CadenceSupabaseError.from(error)
-            scheduleDismiss()
+            setError(CadenceSupabaseError.from(error))
         }
     }
 
-    // MARK: - Status Dismiss
+    func clearError() {
+        error = nil
+    }
 
-    private func scheduleDismiss() {
-        dismissTask?.cancel()
-        dismissTask = Task { @MainActor [weak self] in
-            try? await Task.sleep(for: .seconds(3))
-            guard !Task.isCancelled else { return }
-            self?.error = nil
-            self?.confirmationPending = false
-            self?.resetEmailSent = false
-        }
+    // MARK: - Helpers
+
+    private func setError(_ error: CadenceSupabaseError) {
+        if case .userCancelled = error { return }
+        self.error = error
     }
 
     // MARK: - Sign Out
