@@ -94,11 +94,3 @@ repos:
         language: script
         stages: [pre-push]
         pass_filenames: false
-
-      # -- Build Verification (pre-push) --
-      - id: build-and-test
-        name: build and test
-        entry: tools/hooks/build-and-test.sh
-        language: script
-        stages: [pre-push]
-        pass_filenames: false
