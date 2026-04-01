@@ -7,13 +7,13 @@
 
 ---
 
-## Phase 0 — Foundation
+## Phase 0 — Foundation ✓ COMPLETE
 
 > Everything in this phase must exist before a single line of app code is written. Tasks 0.1–0.6 are manual (cannot be done by Claude Code). Tasks 0.7–0.15 are Claude Code sessions.
 
 ---
 
-### 0.1 — Confirm and Register Domain Name
+### ~~0.1 — Confirm and Register Domain Name~~
 
 **Type:** Manual
 **Owner:** You
@@ -30,7 +30,7 @@ The placeholder throughout all docs is `cadence.dineshd.dev`. Register via Namec
 
 ---
 
-### 0.2 — Apple Developer — Register App ID + Capabilities
+### ~~0.2 — Apple Developer — Register App ID + Capabilities~~
 
 **Type:** Manual
 **Owner:** You
@@ -47,7 +47,7 @@ Bundle ID convention: `com.{yourname}.cadence` — decide this now, it cannot be
 
 ---
 
-### 0.3 — Apple Developer — Create Push Notification Key (.p8)
+### ~~0.3 — Apple Developer — Create Push Notification Key (.p8)~~
 
 **Type:** Manual
 **Owner:** You
@@ -66,7 +66,7 @@ These are required for both the Supabase Auth configuration and the Supabase Edg
 
 ---
 
-### 0.4 — Apple Developer — Configure Sign in with Apple Service ID
+### ~~0.4 — Apple Developer — Configure Sign in with Apple Service ID~~
 
 **Type:** Manual
 **Owner:** You
@@ -79,7 +79,7 @@ You will need your Supabase project URL before completing this step — create t
 
 ---
 
-### 0.5 — Create Supabase Project + Configure Auth
+### ~~0.5 — Create Supabase Project + Configure Auth~~
 
 **Type:** Manual (Supabase dashboard)
 **Owner:** You
@@ -94,7 +94,7 @@ You will need your Supabase project URL before completing this step — create t
 
 ---
 
-### 0.6 — Run Initial Schema Migration
+### ~~0.6 — Run Initial Schema Migration~~
 
 **Type:** Claude Code (Supabase MCP)
 **Skills:** `cadence-supabase`
@@ -125,7 +125,7 @@ Save migration file to `/supabase/migrations/001_initial_schema.sql` in the repo
 
 ---
 
-### 0.7 — Create Xcode Project
+### ~~0.7 — Create Xcode Project~~
 
 **Type:** Manual
 **Owner:** You
@@ -151,7 +151,7 @@ Set the build scheme to a real device or simulator with iOS 26+.
 
 ---
 
-### 0.8 — Add Swift Package Manager Dependencies
+### ~~0.8 — Add Swift Package Manager Dependencies~~
 
 **Type:** Manual / Claude Code
 **Skills:** None needed
@@ -170,7 +170,7 @@ After adding, verify each package resolves without conflicts and the project sti
 
 ---
 
-### 0.9 — Implement Secrets + Environment Config
+### ~~0.9 — Implement Secrets + Environment Config~~
 
 **Type:** Claude Code
 **Skills:** `cadence-supabase`
@@ -190,7 +190,7 @@ Every subsequent task that touches Supabase imports this singleton — it should
 
 ---
 
-### 0.10 — Create GitHub Repo + Configure Settings
+### ~~0.10 — Create GitHub Repo + Configure Settings~~
 
 **Type:** Manual
 **Owner:** You
@@ -229,7 +229,7 @@ Push the initial Xcode project commit to `main` after configuring.
 
 ---
 
-### 0.11 — Add GitHub Actions Secrets
+### ~~0.11 — Add GitHub Actions Secrets~~
 
 **Type:** Manual
 **Owner:** You
@@ -253,7 +253,7 @@ For macOS build signing (add when CI build is first set up):
 
 ---
 
-### 0.12 — Create CI Workflow Files + Dangerfile
+### ~~0.12 — Create CI Workflow Files + Dangerfile~~
 
 **Type:** Claude Code
 **Skills:** None needed
@@ -302,7 +302,7 @@ Create all CI configuration files. Reference the CI/CD Decisions doc for the ful
 
 ---
 
-### 0.13 — Register Custom Fonts in Info.plist
+### ~~0.13 — Register Custom Fonts in Info.plist~~
 
 **Type:** Claude Code
 **Skills:** `cadence-design-system`
@@ -321,7 +321,7 @@ Steps:
 
 ---
 
-### 0.14 — Serve AASA File for Universal Links
+### ~~0.14 — Serve AASA File for Universal Links~~
 
 **Type:** Manual + Claude Code
 **Skills:** `cadence-deep-links`
@@ -337,7 +337,7 @@ Create and deploy the `apple-app-site-association` file to your domain so Univer
 
 ---
 
-### 0.15 — Verify CI Passes on Empty PR
+### ~~0.15 — Verify CI Passes on Empty PR~~
 
 **Type:** Manual
 **Owner:** You
