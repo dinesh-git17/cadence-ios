@@ -1,4 +1,5 @@
 import Auth
+import AuthenticationServices
 import Foundation
 import Supabase
 
@@ -9,10 +10,12 @@ enum CadenceSupabaseError: LocalizedError {
     case notFound
     case networkUnavailable
     case invalidCredentials
+    case emailAlreadyRegistered
     case emailNotConfirmed
     case rateLimited
     case weakPassword(reasons: [String])
     case serverError(statusCode: Int, message: String)
+    case userCancelled
     case unknown(underlying: Error)
 
     var errorDescription: String? {
@@ -29,6 +32,8 @@ enum CadenceSupabaseError: LocalizedError {
                 "No network connection. Please check your connection and try again."
             case .invalidCredentials:
                 "Invalid email or password."
+            case .emailAlreadyRegistered:
+                "An account with this email already exists. Try signing in instead."
             case .emailNotConfirmed:
                 "Please confirm your email address before signing in."
             case .rateLimited:
@@ -37,6 +42,8 @@ enum CadenceSupabaseError: LocalizedError {
                 "Password is too weak: \(reasons.joined(separator: ", "))."
             case let .serverError(_, message):
                 "Something went wrong — \(message)"
+            case .userCancelled:
+                nil
             case .unknown:
                 "Something went wrong. Please try again."
         }
@@ -45,6 +52,9 @@ enum CadenceSupabaseError: LocalizedError {
     static func from(_ error: Error) -> Self {
         if let cadenceError = error as? Self {
             return cadenceError
+        }
+        if let asError = error as? ASAuthorizationError, asError.code == .canceled {
+            return .userCancelled
         }
         if let authError = error as? AuthError {
             return fromAuth(authError)
@@ -76,8 +86,10 @@ enum CadenceSupabaseError: LocalizedError {
 
     private static func fromAuthErrorCode(_ code: ErrorCode, message: String) -> Self {
         switch code {
-            case .invalidCredentials, .userAlreadyExists, .emailExists:
+            case .invalidCredentials:
                 .invalidCredentials
+            case .userAlreadyExists, .emailExists:
+                .emailAlreadyRegistered
             case .emailNotConfirmed:
                 .emailNotConfirmed
             case .overRequestRateLimit, .overEmailSendRateLimit:
