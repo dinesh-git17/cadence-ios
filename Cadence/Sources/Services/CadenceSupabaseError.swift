@@ -1,3 +1,4 @@
+import Auth
 import Foundation
 import Supabase
 
@@ -7,6 +8,10 @@ enum CadenceSupabaseError: LocalizedError {
     case inviteTokenInvalidOrExpired
     case notFound
     case networkUnavailable
+    case invalidCredentials
+    case emailNotConfirmed
+    case rateLimited
+    case weakPassword(reasons: [String])
     case serverError(statusCode: Int, message: String)
     case unknown(underlying: Error)
 
@@ -22,6 +27,14 @@ enum CadenceSupabaseError: LocalizedError {
                 "The requested data was not found."
             case .networkUnavailable:
                 "No network connection. Please check your connection and try again."
+            case .invalidCredentials:
+                "Invalid email or password."
+            case .emailNotConfirmed:
+                "Please confirm your email address before signing in."
+            case .rateLimited:
+                "Too many attempts. Please wait a moment and try again."
+            case let .weakPassword(reasons):
+                "Password is too weak: \(reasons.joined(separator: ", "))."
             case let .serverError(_, message):
                 "Something went wrong — \(message)"
             case .unknown:
@@ -33,17 +46,11 @@ enum CadenceSupabaseError: LocalizedError {
         if let cadenceError = error as? Self {
             return cadenceError
         }
-
+        if let authError = error as? AuthError {
+            return fromAuth(authError)
+        }
         if let postgrestError = error as? PostgrestError {
-            switch postgrestError.code {
-                case "PGRST116":
-                    return .notFound
-                default:
-                    return .serverError(
-                        statusCode: Int(postgrestError.code ?? "0") ?? 0,
-                        message: postgrestError.message
-                    )
-            }
+            return fromPostgREST(postgrestError)
         }
 
         let nsError = error as NSError
@@ -54,5 +61,41 @@ enum CadenceSupabaseError: LocalizedError {
         }
 
         return .unknown(underlying: error)
+    }
+
+    private static func fromAuth(_ error: AuthError) -> Self {
+        switch error {
+            case let .weakPassword(_, reasons):
+                .weakPassword(reasons: reasons)
+            case let .api(_, errorCode, _, _):
+                fromAuthErrorCode(errorCode, message: error.message)
+            default:
+                .serverError(statusCode: 0, message: error.message)
+        }
+    }
+
+    private static func fromAuthErrorCode(_ code: ErrorCode, message: String) -> Self {
+        switch code {
+            case .invalidCredentials, .userAlreadyExists, .emailExists:
+                .invalidCredentials
+            case .emailNotConfirmed:
+                .emailNotConfirmed
+            case .overRequestRateLimit, .overEmailSendRateLimit:
+                .rateLimited
+            default:
+                .serverError(statusCode: 0, message: message)
+        }
+    }
+
+    private static func fromPostgREST(_ error: PostgrestError) -> Self {
+        switch error.code {
+            case "PGRST116":
+                .notFound
+            default:
+                .serverError(
+                    statusCode: Int(error.code ?? "0") ?? 0,
+                    message: error.message
+                )
+        }
     }
 }

@@ -15,8 +15,8 @@ extension Font {
     /// 18pt — Bottom sheet titles, card headings.
     static let cadenceTitleSmall = Font.custom("PlayfairDisplay-Regular", size: 18)
 
-    /// Italic 32pt — Used only for the word "shared" in the welcome headline.
-    static let cadenceTitleItalic = Font.custom("PlayfairDisplay-Italic", size: 32)
+    /// Italic 22pt — Used only for the word "shared" in the welcome headline.
+    static let cadenceTitleItalic = Font.custom("PlayfairDisplay-Italic", size: 22)
 
     // MARK: - DM Sans
 
