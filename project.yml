@@ -1,0 +1,58 @@
+name: Cadence
+options:
+  bundleIdPrefix: com.dineshd
+  deploymentTarget:
+    iOS: "26.0"
+  xcodeVersion: "26.4"
+  generateEmptyDirectories: true
+
+settings:
+  base:
+    DEVELOPMENT_TEAM: WWDLQL8W8W
+    SWIFT_VERSION: "5.9"
+    CODE_SIGN_STYLE: Automatic
+
+targets:
+  Cadence:
+    type: application
+    platform: iOS
+    sources:
+      - path: Cadence/Sources
+    resources:
+      - path: Cadence/Resources
+    entitlements:
+      path: Cadence/Cadence.entitlements
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.dineshd.cadence
+        INFOPLIST_GENERATION_MODE: GeneratedFile
+        MARKETING_VERSION: "1.0.0"
+        CURRENT_PROJECT_VERSION: "1"
+        GENERATE_INFOPLIST_FILE: "YES"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+
+  CadenceTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: CadenceTests
+    dependencies:
+      - target: Cadence
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.dineshd.cadence.tests
+        GENERATE_INFOPLIST_FILE: "YES"
+
+  CadenceUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - path: CadenceUITests
+    dependencies:
+      - target: Cadence
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.dineshd.cadence.uitests
+        GENERATE_INFOPLIST_FILE: "YES"
+        TEST_TARGET_NAME: Cadence
