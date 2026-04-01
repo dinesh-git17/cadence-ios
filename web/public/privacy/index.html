@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy Policy — Cadence</title>
+    <meta
+      name="description"
+      content="How Cadence collects, uses, and protects your data. Health data is encrypted on your device before it reaches our servers."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="bg-circle bg-circle-1"></div>
+    <div class="bg-circle bg-circle-2"></div>
+    <div class="bg-circle bg-circle-3"></div>
+
+    <header>
+      <a href="/" class="wordmark">Cadence<span class="dot">.</span></a>
+    </header>
+
+    <main class="legal-page">
+      <h1 class="page-title">Privacy Policy</h1>
+      <p class="effective-date">Last updated: April 1, 2026</p>
+
+      <h2>Who we are</h2>
+      <p>
+        Cadence is operated by Dinesh Dawonauth, based in Toronto, Ontario,
+        Canada. If you have questions about this policy or your data, contact us
+        at <a href="mailto:privacy@dineshd.dev">privacy@dineshd.dev</a>.
+      </p>
+
+      <h2>What we collect</h2>
+
+      <h3>Health data</h3>
+      <p>
+        When you log entries in Cadence, we store the following data types. All
+        health data is encrypted on your device before it reaches our servers.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Data type</th>
+              <th>Examples</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Period flow</td>
+              <td>None, spotting, light, medium, heavy</td>
+            </tr>
+            <tr>
+              <td>Mood</td>
+              <td>Happy, calm, anxious, irritable, sad, energetic, tired</td>
+            </tr>
+            <tr>
+              <td>Energy level</td>
+              <td>Low, medium, high</td>
+            </tr>
+            <tr>
+              <td>Symptoms</td>
+              <td>
+                Cramps, headache, bloating, backache, tender breasts, nausea,
+                acne, custom entries
+              </td>
+            </tr>
+            <tr>
+              <td>Sleep quality</td>
+              <td>Poor, okay, good</td>
+            </tr>
+            <tr>
+              <td>Intimacy</td>
+              <td>Logged or not logged, protected or unprotected</td>
+            </tr>
+            <tr>
+              <td>Notes</td>
+              <td>Free-text entries</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Account data</h3>
+      <ul>
+        <li>Email address</li>
+        <li>Display name</li>
+        <li>Whether you track a cycle (your selected role)</li>
+      </ul>
+
+      <h3>Usage data</h3>
+      <p>
+        We use <a href="https://telemetrydeck.com/privacy/">TelemetryDeck</a>
+        for app analytics. TelemetryDeck collects anonymized usage signals with
+        no personal identifiers — no device IDs, no IP addresses, no
+        fingerprinting.
+      </p>
+      <p>
+        Our website uses
+        <a href="https://vercel.com/docs/analytics/privacy-policy"
+          >Vercel Analytics</a
+        >
+        for anonymized page view data. The website does not use cookies.
+      </p>
+
+      <h2>How your health data is protected</h2>
+      <div class="callout">
+        <p>
+          Your health data is encrypted on your device before it ever reaches
+          our servers. The data stored on our servers is ciphertext — we cannot
+          read it, even if we wanted to.
+        </p>
+      </div>
+      <p>
+        Cadence uses AES-256-GCM encryption via Apple's CryptoKit framework. A
+        unique encryption key is derived for each user on their device. Because
+        we never hold the key needed to decrypt your health data, we are
+        technically unable to access it — whether for internal use, in response
+        to data breaches, or under legal compulsion.
+      </p>
+      <p>
+        In addition to client-side encryption, all data is encrypted at rest at
+        the infrastructure level by our hosting provider.
+      </p>
+
+      <h2>How we use your data</h2>
+      <ul>
+        <li>
+          To provide the Cadence service: cycle tracking, predictions, and daily
+          logging
+        </li>
+        <li>
+          To calculate cycle predictions using your logged data on your device
+        </li>
+        <li>
+          To share selected categories with your connected partner, only when
+          you enable them
+        </li>
+        <li>To send push notifications you have opted into</li>
+        <li>
+          To improve the app through anonymized, non-personal usage analytics
+        </li>
+      </ul>
+
+      <h2>Partner sharing</h2>
+      <p>
+        Cadence lets you share selected health data with a connected partner.
+        Sharing is entirely opt-in — nothing is shared by default.
+      </p>
+
+      <h3>Categories you can choose to share</h3>
+      <ul>
+        <li>Period flow and dates</li>
+        <li>Mood</li>
+        <li>Energy level</li>
+        <li>Symptoms</li>
+      </ul>
+
+      <h3>Categories that can never be shared</h3>
+      <ul>
+        <li>Intimacy and sex data</li>
+        <li>Sleep quality</li>
+        <li>Notes</li>
+      </ul>
+      <p>
+        When you share data, Cadence writes a separate copy of only the enabled
+        categories to a shared data store. Your partner reads from this copy —
+        they never have access to your full logs.
+      </p>
+      <p>
+        When you turn off a category, that data is removed from the shared
+        store, including historical entries. When either partner disconnects, all
+        shared data for that connection is permanently deleted.
+      </p>
+
+      <h2>Third-party services</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Service</th>
+              <th>Purpose</th>
+              <th>Data received</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Supabase</td>
+              <td>Database, authentication, real-time sync</td>
+              <td>Encrypted health data, account data</td>
+            </tr>
+            <tr>
+              <td>Apple</td>
+              <td>Authentication (Sign in with Apple), push notifications</td>
+              <td>Device token, Apple ID if used for sign-in</td>
+            </tr>
+            <tr>
+              <td>TelemetryDeck</td>
+              <td>App analytics</td>
+              <td>Anonymized usage signals, no personal identifiers</td>
+            </tr>
+            <tr>
+              <td>Vercel</td>
+              <td>Website hosting and analytics</td>
+              <td>Anonymized page view data</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        We do not use advertising SDKs, tracking pixels, or fingerprinting
+        technologies.
+      </p>
+
+      <h2>Where your data is stored</h2>
+      <p>
+        Your data is stored on Supabase servers in the United States (us-east-1
+        region). All data is encrypted at rest at the infrastructure level, in
+        addition to the client-side encryption Cadence applies to health data
+        before upload.
+      </p>
+
+      <h2>Data retention and deletion</h2>
+      <p>
+        We retain your data for as long as your account exists. To request
+        deletion of your account and all associated data, email
+        <a href="mailto:privacy@dineshd.dev">privacy@dineshd.dev</a>. We will
+        delete your data within 30 days of verifying your request.
+      </p>
+      <p>
+        Deletion includes your account, cycle logs, shared logs, sharing
+        settings, and partner connections. Self-service account deletion will be
+        available in a future version of the app.
+      </p>
+
+      <h2>Your rights</h2>
+      <p>Depending on where you live, you may have the right to:</p>
+      <ul>
+        <li>Access the personal data we hold about you</li>
+        <li>Correct inaccurate data</li>
+        <li>Request deletion of your data</li>
+        <li>Restrict or object to certain processing</li>
+        <li>Receive your data in a portable format</li>
+        <li>Withdraw consent at any time</li>
+      </ul>
+      <p>
+        To exercise any of these rights, email
+        <a href="mailto:privacy@dineshd.dev">privacy@dineshd.dev</a>.
+      </p>
+      <p>
+        Because health data is encrypted on your device and we cannot decrypt it
+        on our servers, some requests — such as data access or portability for
+        health data — may require coordination, as the decryption key exists
+        only on your device.
+      </p>
+
+      <h2>Children</h2>
+      <p>
+        Cadence is not intended for anyone under 16 years of age. We do not
+        knowingly collect data from anyone under 16. If you believe someone
+        under 16 has created an account, contact us at
+        <a href="mailto:privacy@dineshd.dev">privacy@dineshd.dev</a> and we
+        will delete the account.
+      </p>
+
+      <h2>We never sell your data</h2>
+      <div class="callout">
+        <p>
+          We do not sell your personal data. We do not share it with advertisers
+          or data brokers. This is not a future promise — it is how Cadence is
+          built.
+        </p>
+      </div>
+
+      <h2>Law enforcement and legal requests</h2>
+      <p>
+        If we receive a legal request for user data, we will comply to the
+        extent required by law. However, because health data is encrypted on
+        your device with a key we do not hold, we are technically unable to
+        provide readable health data in response to any request.
+      </p>
+
+      <h2>Changes to this policy</h2>
+      <p>
+        We may update this policy from time to time. When we make material
+        changes, we will update the date at the top of this page and notify you
+        through the app. Continued use of Cadence after changes take effect
+        constitutes acceptance of the updated policy.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        For privacy questions or data requests:<br />
+        <a href="mailto:privacy@dineshd.dev">privacy@dineshd.dev</a>
+      </p>
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-brand">
+          <span class="wordmark-small"
+            >Cadence<span class="dot">.</span></span
+          >
+        </div>
+        <nav class="footer-links">
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/terms">Terms of Service</a>
+        </nav>
+        <p class="footer-copy">&copy; 2026 Cadence. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
