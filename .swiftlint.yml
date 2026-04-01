@@ -46,6 +46,7 @@ opt_in_rules:
 disabled_rules:
   - trailing_comma
   - todo
+  - switch_case_alignment
 
 force_unwrapping:
   severity: error
@@ -65,5 +66,13 @@ file_length:
 function_body_length:
   warning: 50
   error: 100
+
+identifier_name:
+  min_length: 2
+  excluded:
+    - a
+    - r
+    - g
+    - b
 
 reporter: xcode
