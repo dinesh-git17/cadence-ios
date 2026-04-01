@@ -12,6 +12,7 @@
 		8D8902E9EDADB7F9A4E6B1F4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE12E0610D52C4F727FAAFFD /* ContentView.swift */; };
 		9B738BA7E45D579C2382F74D /* CadenceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1DE86724D4B243D0E61FDD /* CadenceUITests.swift */; };
 		A0B10965E26138F42C677BE1 /* PhosphorSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 63BD81BDB51C7EB6DE95DB35 /* PhosphorSwift */; };
+		A1339FF7147D9D8B43A747A0 /* Supabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025A75D80144B072AD84822F /* Supabase.swift */; };
 		CA7DEBC92273F86FC09DB926 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 47DC5B319847E2250B78234F /* Supabase */; };
 /* End PBXBuildFile section */
 
@@ -33,12 +34,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		025A75D80144B072AD84822F /* Supabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Supabase.swift; sourceTree = "<group>"; };
 		2747B5C0BD75EFECA1D2569B /* Cadence.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Cadence.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F456433D2A424E6A501E1CC /* CadenceUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = CadenceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		53DC5566E2688823A894040D /* CadenceTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = CadenceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F7A81DEBCC515437DE56C5B /* CadenceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceApp.swift; sourceTree = "<group>"; };
 		8F1DE86724D4B243D0E61FDD /* CadenceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceUITests.swift; sourceTree = "<group>"; };
 		9880DDA2B852F0ED7E7ECC0F /* CadenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceTests.swift; sourceTree = "<group>"; };
+		998821507A17686BDC11A37A /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		DDB227624E9820560B400EC7 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		EE12E0610D52C4F727FAAFFD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -60,9 +64,27 @@
 			children = (
 				6F7A81DEBCC515437DE56C5B /* CadenceApp.swift */,
 				EE12E0610D52C4F727FAAFFD /* ContentView.swift */,
+				11EB37EA1F372555425F5CFE /* Services */,
 			);
 			name = Sources;
 			path = Cadence/Sources;
+			sourceTree = "<group>";
+		};
+		11EB37EA1F372555425F5CFE /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				025A75D80144B072AD84822F /* Supabase.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		374814B8ACA93D26517161EA /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				998821507A17686BDC11A37A /* Debug.xcconfig */,
+				DDB227624E9820560B400EC7 /* Release.xcconfig */,
+			);
+			path = Config;
 			sourceTree = "<group>";
 		};
 		474DB1E3FA7ECC764925DA48 /* CadenceTests */ = {
@@ -78,6 +100,7 @@
 			children = (
 				474DB1E3FA7ECC764925DA48 /* CadenceTests */,
 				7C881514491CD8DE1546F688 /* CadenceUITests */,
+				374814B8ACA93D26517161EA /* Config */,
 				101C4A96CD1B541BD4BF25D3 /* Sources */,
 				ADFE63F9A7B11522B6C8E81A /* Products */,
 			);
@@ -224,6 +247,7 @@
 			files = (
 				22C6ABA7F947A308F8D6B5A6 /* CadenceApp.swift in Sources */,
 				8D8902E9EDADB7F9A4E6B1F4 /* ContentView.swift in Sources */,
+				A1339FF7147D9D8B43A747A0 /* Supabase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,8 +283,7 @@
 				CODE_SIGN_ENTITLEMENTS = Cadence/Cadence.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_GENERATION_MODE = GeneratedFile;
+				INFOPLIST_FILE = Cadence/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -280,8 +303,7 @@
 				CODE_SIGN_ENTITLEMENTS = Cadence/Cadence.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_GENERATION_MODE = GeneratedFile;
+				INFOPLIST_FILE = Cadence/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -295,6 +317,7 @@
 		};
 		9DBE9E0079A7DB194A03BF0C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DDB227624E9820560B400EC7 /* Release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -404,6 +427,7 @@
 		};
 		C78721ED836CA881972A504D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 998821507A17686BDC11A37A /* Debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
