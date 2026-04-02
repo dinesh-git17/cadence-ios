@@ -12,7 +12,7 @@ let supabase = SupabaseClient(
     )
 )
 
-private enum Secrets {
+enum Secrets {
     static var supabaseURL: URL {
         guard
             let urlString = Bundle.main.infoDictionary?["SUPABASE_URL"] as? String,
@@ -28,5 +28,14 @@ private enum Secrets {
             fatalError("SUPABASE_ANON_KEY not found in Info.plist. Check xcconfig configuration.")
         }
         return key
+    }
+
+    static var encryptionSecret: Data {
+        guard let encoded = Bundle.main.infoDictionary?["ENCRYPTION_SECRET"] as? String,
+              let data = Data(base64Encoded: encoded)
+        else {
+            fatalError("ENCRYPTION_SECRET not found or invalid in Info.plist. Check xcconfig configuration.")
+        }
+        return data
     }
 }
