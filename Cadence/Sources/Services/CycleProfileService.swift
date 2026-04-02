@@ -1,12 +1,13 @@
 import Foundation
 
 final class CycleProfileService {
-    /// Creates the cycle profile during onboarding with seed data.
-    func createProfile(_ profile: InsertCycleProfile) async throws {
+    /// Creates or updates the cycle profile during onboarding with seed data.
+    /// Uses upsert so re-entry after interrupted onboarding is safe.
+    func upsertProfile(_ profile: InsertCycleProfile) async throws {
         do {
             try await supabase
                 .from("cycle_profiles")
-                .insert(profile)
+                .upsert(profile)
                 .execute()
         } catch {
             throw CadenceSupabaseError.from(error)

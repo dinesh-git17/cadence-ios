@@ -33,10 +33,15 @@ targets:
       - path: Cadence/Fonts
         buildPhase: resources
         type: folder
-    resources:
-      - path: Cadence/Resources
+      - path: Cadence/Resources/Assets.xcassets
+        buildPhase: resources
     entitlements:
       path: Cadence/Cadence.entitlements
+      properties:
+        com.apple.developer.applesignin:
+          - Default
+        com.apple.developer.associated-domains:
+          - applinks:cadence.dineshd.dev
     dependencies:
       - package: Supabase
       - package: PhosphorSwift
@@ -53,11 +58,19 @@ targets:
         CFBundleDisplayName: Cadence
         SUPABASE_URL: $(SUPABASE_URL)
         SUPABASE_ANON_KEY: $(SUPABASE_ANON_KEY)
+        ENCRYPTION_SECRET: $(ENCRYPTION_SECRET)
+        CFBundleURLTypes:
+          - CFBundleURLName: com.dineshd.cadence
+            CFBundleURLSchemes:
+              - cadence
+        UILaunchScreen: {}
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
         UIAppFonts:
-          - PlayfairDisplay-Regular.ttf
-          - PlayfairDisplay-Italic.ttf
-          - DMSans-Regular.ttf
-          - DMSans-Medium.ttf
+          - Fonts/PlayfairDisplay-Regular.ttf
+          - Fonts/PlayfairDisplay-Italic.ttf
+          - Fonts/DMSans-Regular.ttf
+          - Fonts/DMSans-Medium.ttf
 
   CadenceTests:
     type: bundle.unit-test

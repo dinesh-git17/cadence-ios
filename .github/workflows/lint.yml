@@ -34,7 +34,7 @@ jobs:
             migrations:
               - 'supabase/migrations/**'
 
-      - name: Lint migrations
+      - name: Setup Supabase CLI
         if: steps.changes.outputs.migrations == 'true'
         uses: supabase/setup-cli@v1
         with:
@@ -42,6 +42,6 @@ jobs:
 
       - name: Run lint
         if: steps.changes.outputs.migrations == 'true'
-        run: supabase db lint --linked
+        run: supabase db lint --db-url "$SUPABASE_DB_URL"
         env:
           SUPABASE_DB_URL: ${{ secrets.SUPABASE_DB_URL }}

@@ -1,3 +1,4 @@
 // Debug.xcconfig.template — copy to Debug.xcconfig and fill in real values
 SUPABASE_URL = https:$()/$()/YOUR_PROJECT_REF.supabase.co
 SUPABASE_ANON_KEY = YOUR_ANON_KEY
+ENCRYPTION_SECRET = YOUR_ENCRYPTION_SECRET
