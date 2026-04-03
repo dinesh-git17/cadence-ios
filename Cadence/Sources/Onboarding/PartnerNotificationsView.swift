@@ -9,17 +9,30 @@ private let partnerNotificationRows: [NotificationRowData] = [
 struct PartnerNotificationsView: View {
     @EnvironmentObject var viewModel: OnboardingViewModel
 
+    @State private var showCompletion = false
+
     var body: some View {
-        VStack(spacing: 0) {
-            progressHeader
-            titleSection
-            toggleList
-            Spacer()
-            errorBanner
-            enterCadenceButton
+        ZStack {
+            VStack(spacing: 0) {
+                OnboardingBackButton()
+                progressHeader
+                titleSection
+                toggleList
+                Spacer()
+                errorBanner
+                enterCadenceButton
+            }
+
+            if showCompletion {
+                OnboardingCompletionOverlay()
+            }
         }
         .background(Color.cadenceBgBase)
         .navigationBarHidden(true)
+        .sensoryFeedback(.success, trigger: showCompletion)
+        .onChange(of: viewModel.commitState) { _, newState in
+            if newState == .complete { showCompletion = true }
+        }
     }
 
     private var progressHeader: some View {
@@ -125,19 +138,24 @@ struct PartnerNotificationsView: View {
         }
     }
 
+    private var isLoading: Bool {
+        viewModel.commitState == .loading
+    }
+
     private var enterCadenceButton: some View {
-        Button(ctaLabel) {
+        Button {
             Task { await requestNotificationsAndCommit() }
+        } label: {
+            Text(ctaLabel)
+                .opacity(isLoading ? 0 : 1)
+                .overlay {
+                    if isLoading { ProgressView().tint(.white) }
+                }
         }
         .buttonStyle(PrimaryButtonStyle())
         .padding(.horizontal, CadenceSpacing.lg)
         .padding(.bottom, 20)
-        .disabled(viewModel.commitState == .loading)
-        .overlay(alignment: .center) {
-            if viewModel.commitState == .loading {
-                ProgressView().tint(.white)
-            }
-        }
+        .disabled(isLoading)
     }
 
     private var ctaLabel: String {

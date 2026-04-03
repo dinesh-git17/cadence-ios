@@ -7,6 +7,7 @@ struct CycleLengthsView: View {
 
     var body: some View {
         VStack(spacing: 0) {
+            OnboardingBackButton()
             progressHeader
             titleSection
             pickerRows
@@ -45,7 +46,7 @@ struct CycleLengthsView: View {
     }
 
     private var titleSection: some View {
-        Text("Tell us about\nyour cycle")
+        Text("About your cycle")
             .font(.cadenceTitleMedium)
             .foregroundStyle(Color.cadenceTextPrimary)
             .frame(maxWidth: .infinity, alignment: .leading)

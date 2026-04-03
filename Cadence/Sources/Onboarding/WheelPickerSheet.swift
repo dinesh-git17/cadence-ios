@@ -41,7 +41,7 @@ struct WheelPickerSheet: View {
     }
 
     private var doneButton: some View {
-        Button("Done") { dismiss() }
+        Button("Confirm") { dismiss() }
             .buttonStyle(PrimaryButtonStyle())
             .padding(.horizontal, CadenceSpacing.lg)
             .padding(.bottom, 20)

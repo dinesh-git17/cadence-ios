@@ -31,6 +31,7 @@
 		505F4C838CBD83D3BC566921 /* EncryptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188FC76DD3203309DFAD89FE /* EncryptionService.swift */; };
 		546527210DB835F02D2206F0 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAA8EE7DD7E9B04F2A73F9E /* RootView.swift */; };
 		54EC72B8E26CA00B52D7F6D3 /* NotificationPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91A46F475E5F0ABFD590E41 /* NotificationPreferences.swift */; };
+		5AA5AA2F912D73C1F921D60A /* OnboardingCompletionOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860458825EE21AEFD21BBE85 /* OnboardingCompletionOverlay.swift */; };
 		5C8AE9BB75F9766723B1A898 /* RoleSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB41AD7766ABBE13527EF6C /* RoleSelectionView.swift */; };
 		62205DA904FBA0A01A94D933 /* Font+Cadence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F6B6294A3C1CB2E316751A /* Font+Cadence.swift */; };
 		66E47B6A02039D5EAA59A594 /* InviteLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68B5385FFD55D37D1BDDA25 /* InviteLink.swift */; };
@@ -49,6 +50,7 @@
 		9F2C7F538E1143A1A786813D /* CadenceProgressDots.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC10C2DE737B270E96193308 /* CadenceProgressDots.swift */; };
 		A0B10965E26138F42C677BE1 /* PhosphorSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 63BD81BDB51C7EB6DE95DB35 /* PhosphorSwift */; };
 		A1339FF7147D9D8B43A747A0 /* Supabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025A75D80144B072AD84822F /* Supabase.swift */; };
+		AA69F1180C890941914BB7CA /* OnboardingBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE22B52BB867D335496BCB5 /* OnboardingBackButton.swift */; };
 		B113799C232C97FAEFA5EFA8 /* Color+Cadence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C259254050ABD2611807FF00 /* Color+Cadence.swift */; };
 		B87EBF4964614E10F17854ED /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A78DBB0BED3251058288220 /* UserService.swift */; };
 		BB3A401186383362C0AF512B /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE60F456B694C5CE8EA7CE /* ButtonStyles.swift */; };
@@ -102,7 +104,7 @@
 		11BFBB1E678B490913416EE7 /* SharingSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharingSettings.swift; sourceTree = "<group>"; };
 		188FC76DD3203309DFAD89FE /* EncryptionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptionService.swift; sourceTree = "<group>"; };
 		2071FB4A9FE784EDC041D4F6 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
-		2747B5C0BD75EFECA1D2569B /* Cadence.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cadence.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2747B5C0BD75EFECA1D2569B /* Cadence.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Cadence.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		291E4AA84C6C3B02259146C0 /* CadenceSegmentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceSegmentButton.swift; sourceTree = "<group>"; };
 		38A7FA0AAE246170075F11D3 /* CadenceEnergyRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceEnergyRow.swift; sourceTree = "<group>"; };
 		3A2BFA594AEA1BC714DB02C0 /* SharingSettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharingSettingsService.swift; sourceTree = "<group>"; };
@@ -111,9 +113,9 @@
 		4A78DBB0BED3251058288220 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		4B43F494E0DD805B07C8237F /* CadenceGroupedCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceGroupedCard.swift; sourceTree = "<group>"; };
 		4EAA8EE7DD7E9B04F2A73F9E /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
-		4F456433D2A424E6A501E1CC /* CadenceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CadenceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F456433D2A424E6A501E1CC /* CadenceUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = CadenceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		512DDDDA7B408F9A621F98C7 /* OnboardingRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRoute.swift; sourceTree = "<group>"; };
-		53DC5566E2688823A894040D /* CadenceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CadenceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		53DC5566E2688823A894040D /* CadenceTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = CadenceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		56C3391B7217763F92DDFDF1 /* RoleCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleCard.swift; sourceTree = "<group>"; };
 		5857609F835CBC6454256E21 /* CycleProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CycleProfileService.swift; sourceTree = "<group>"; };
 		59541F56BB74507B4EDE2892 /* CadencePartnerHeroCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadencePartnerHeroCard.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 		7C730450BAD37724707F7C99 /* CadenceSupabaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceSupabaseError.swift; sourceTree = "<group>"; };
 		80FFE28F1BE7617D949D0CC0 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		8262C963414151BE057B1E02 /* CadenceFlowRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceFlowRow.swift; sourceTree = "<group>"; };
+		860458825EE21AEFD21BBE85 /* OnboardingCompletionOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCompletionOverlay.swift; sourceTree = "<group>"; };
 		88C3142FCD090B6F91573907 /* CadenceIconTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceIconTile.swift; sourceTree = "<group>"; };
 		8ADD0CAA3291EC04624E40D5 /* WheelPickerSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheelPickerSheet.swift; sourceTree = "<group>"; };
 		8C9034E82538388296E24DF3 /* PartnerConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnerConnection.swift; sourceTree = "<group>"; };
@@ -152,6 +155,7 @@
 		CEEF62A65C35585F6C21A3F1 /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
 		CF38A57EEC9FB4FA7335F183 /* EncryptionServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptionServiceTests.swift; sourceTree = "<group>"; };
 		D68B5385FFD55D37D1BDDA25 /* InviteLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteLink.swift; sourceTree = "<group>"; };
+		DBE22B52BB867D335496BCB5 /* OnboardingBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingBackButton.swift; sourceTree = "<group>"; };
 		DD98C6BC4C1E4A300C950AF0 /* CadenceHeroCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceHeroCard.swift; sourceTree = "<group>"; };
 		DDB227624E9820560B400EC7 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		E7A25E13E53C9BC689C5E08E /* CadenceChip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceChip.swift; sourceTree = "<group>"; };
@@ -303,6 +307,8 @@
 				F9723D1208BEC84AB2F0B732 /* InvitePartnerView.swift */,
 				E91A16CD82543AB69927787A /* LastPeriodDateView.swift */,
 				A92F17C9E6A9BCBCA513ED21 /* NotificationsView.swift */,
+				DBE22B52BB867D335496BCB5 /* OnboardingBackButton.swift */,
+				860458825EE21AEFD21BBE85 /* OnboardingCompletionOverlay.swift */,
 				CB1553175CBFF72BC6BBCE85 /* OnboardingCoordinatorView.swift */,
 				512DDDDA7B408F9A621F98C7 /* OnboardingRoute.swift */,
 				754E130081CF8D7B316DA540 /* OnboardingViewModel.swift */,
@@ -528,6 +534,8 @@
 				54EC72B8E26CA00B52D7F6D3 /* NotificationPreferences.swift in Sources */,
 				0B27E789B52483C816F068B7 /* NotificationPreferencesService.swift in Sources */,
 				69605D60CBEA37F1DB708F7E /* NotificationsView.swift in Sources */,
+				AA69F1180C890941914BB7CA /* OnboardingBackButton.swift in Sources */,
+				5AA5AA2F912D73C1F921D60A /* OnboardingCompletionOverlay.swift in Sources */,
 				429E7D853881893FBB72F3F2 /* OnboardingCoordinatorView.swift in Sources */,
 				1039EFD85BA77ED16884B44A /* OnboardingRoute.swift in Sources */,
 				6B7568E674857EA3FD6C1DFF /* OnboardingViewModel.swift in Sources */,
@@ -580,7 +588,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = Cadence/Cadence.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -601,7 +608,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = Cadence/Cadence.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;

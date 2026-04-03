@@ -42,26 +42,27 @@ struct RoleSelectionView: View {
             RoleCard(
                 title: "Yes, I track my cycle",
                 subtitle: "Log your period, symptoms, moods, and more.",
-                isSelected: viewModel.isTracker
+                isSelected: viewModel.selectedRole == .tracker
             ) {
-                viewModel.isTracker = true
+                viewModel.selectedRole = .tracker
             }
 
             RoleCard(
                 title: "No, I'm a partner",
                 subtitle: "Stay informed about your partner's cycle.",
-                isSelected: !viewModel.isTracker
+                isSelected: viewModel.selectedRole == .partner
             ) {
-                viewModel.isTracker = false
+                viewModel.selectedRole = .partner
             }
         }
         .padding(.horizontal, CadenceSpacing.lg)
         .padding(.top, CadenceSpacing.xl)
+        .sensoryFeedback(.selection, trigger: viewModel.selectedRole)
     }
 
     private var continueButton: some View {
         Button("Continue") {
-            if viewModel.isTracker {
+            if viewModel.selectedRole == .tracker {
                 viewModel.path.append(OnboardingRoute.lastPeriodDate)
             } else {
                 viewModel.path.append(
@@ -72,5 +73,6 @@ struct RoleSelectionView: View {
         .buttonStyle(PrimaryButtonStyle())
         .padding(.horizontal, CadenceSpacing.lg)
         .padding(.bottom, 20)
+        .disabled(viewModel.selectedRole == nil)
     }
 }

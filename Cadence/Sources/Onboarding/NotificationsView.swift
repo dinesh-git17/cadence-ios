@@ -12,22 +12,37 @@ private let trackerNotificationRows: [NotificationRowData] = [
     .init(icon: "sun.max", title: "Ovulation alert", sub: "When your fertile window opens"),
     .init(icon: "moon", title: "Daily log reminder", sub: "A nudge to log your day at 8:00 PM"),
     .init(icon: "heart", title: "Partner activity", sub: "When your partner logs their day"),
+    .init(icon: "exclamationmark.circle", title: "Period is late", sub: "When your predicted period hasn't arrived"),
+    .init(icon: "arrow.triangle.2.circlepath", title: "Phase change", sub: "When you enter a new cycle phase"),
 ]
 
 struct NotificationsView: View {
     @EnvironmentObject var viewModel: OnboardingViewModel
 
+    @State private var showCompletion = false
+
     var body: some View {
-        VStack(spacing: 0) {
-            progressHeader
-            titleSection
-            toggleList
-            Spacer()
-            errorBanner
-            enterCadenceButton
+        ZStack {
+            VStack(spacing: 0) {
+                OnboardingBackButton()
+                progressHeader
+                titleSection
+                toggleList
+                Spacer()
+                errorBanner
+                enterCadenceButton
+            }
+
+            if showCompletion {
+                OnboardingCompletionOverlay()
+            }
         }
         .background(Color.cadenceBgBase)
         .navigationBarHidden(true)
+        .sensoryFeedback(.success, trigger: showCompletion)
+        .onChange(of: viewModel.commitState) { _, newState in
+            if newState == .complete { showCompletion = true }
+        }
     }
 
     private var progressHeader: some View {
@@ -58,6 +73,8 @@ struct NotificationsView: View {
             notificationRow(index: 1, binding: $viewModel.notifyOvulation)
             notificationRow(index: 2, binding: $viewModel.notifyDailyLog)
             notificationRow(index: 3, binding: $viewModel.notifyPartnerActivity)
+            notificationRow(index: 4, binding: $viewModel.notifyPeriodLate)
+            notificationRow(index: 5, binding: $viewModel.notifyPhaseChange)
         }
         .padding(.vertical, CadenceSpacing.xs)
         .padding(.horizontal, CadenceSpacing.md)
@@ -135,19 +152,24 @@ struct NotificationsView: View {
         }
     }
 
+    private var isLoading: Bool {
+        viewModel.commitState == .loading
+    }
+
     private var enterCadenceButton: some View {
-        Button(ctaLabel) {
+        Button {
             Task { await requestNotificationsAndCommit() }
+        } label: {
+            Text(ctaLabel)
+                .opacity(isLoading ? 0 : 1)
+                .overlay {
+                    if isLoading { ProgressView().tint(.white) }
+                }
         }
         .buttonStyle(PrimaryButtonStyle())
         .padding(.horizontal, CadenceSpacing.lg)
         .padding(.bottom, 20)
-        .disabled(viewModel.commitState == .loading)
-        .overlay(alignment: .center) {
-            if viewModel.commitState == .loading {
-                ProgressView().tint(.white)
-            }
-        }
+        .disabled(isLoading)
     }
 
     private var ctaLabel: String {

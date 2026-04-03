@@ -12,6 +12,7 @@ struct SharingPreferencesView: View {
 
     var body: some View {
         VStack(spacing: 0) {
+            OnboardingBackButton()
             progressHeader
             titleSection
             toggleList
@@ -35,7 +36,7 @@ struct SharingPreferencesView: View {
             Text("What would you like\nto share?")
                 .font(.cadenceTitleMedium)
                 .foregroundStyle(Color.cadenceTextPrimary)
-            Text("All off by default. You can change this anytime.")
+            Text("When you connect a partner, they'll only see what you turn on. You can change this anytime.")
                 .font(.cadenceBody)
                 .foregroundStyle(Color.cadenceTextSecondary)
         }
@@ -44,8 +45,15 @@ struct SharingPreferencesView: View {
         .padding(.top, CadenceSpacing.xxl)
     }
 
+    private var allOn: Bool {
+        viewModel.sharePeriod && viewModel.shareMood
+            && viewModel.shareSymptoms && viewModel.shareEnergy
+    }
+
     private var toggleList: some View {
         VStack(spacing: 0) {
+            selectAllRow
+            Divider().background(Color.cadenceBorderDefault)
             toggleRow(index: 0, binding: $viewModel.sharePeriod)
             toggleRow(index: 1, binding: $viewModel.shareMood)
             toggleRow(index: 2, binding: $viewModel.shareSymptoms)
@@ -61,6 +69,31 @@ struct SharingPreferencesView: View {
         )
         .padding(.horizontal, CadenceSpacing.lg)
         .padding(.top, CadenceSpacing.xl)
+    }
+
+    private var selectAllRow: some View {
+        HStack {
+            Text("Share all")
+                .font(.cadenceBody)
+                .fontWeight(.medium)
+                .foregroundStyle(Color.cadencePrimary)
+            Spacer()
+            Toggle("", isOn: Binding(
+                get: { allOn },
+                set: { newValue in
+                    viewModel.sharePeriod = newValue
+                    viewModel.shareMood = newValue
+                    viewModel.shareSymptoms = newValue
+                    viewModel.shareEnergy = newValue
+                }
+            ))
+            .labelsHidden()
+            .tint(.cadencePrimary)
+        }
+        .padding(.vertical, CadenceSpacing.md)
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("Share all categories")
+        .accessibilityValue(allOn ? "On" : "Off")
     }
 
     private func toggleRow(index: Int, binding: Binding<Bool>) -> some View {

@@ -7,6 +7,7 @@ struct InvitePartnerView: View {
 
     var body: some View {
         VStack(spacing: 0) {
+            OnboardingBackButton()
             progressHeader
             Spacer()
             illustration
@@ -14,7 +15,6 @@ struct InvitePartnerView: View {
             shareAction
             Spacer()
             skipButton
-            continueButton
         }
         .background(Color.cadenceBgBase)
         .navigationBarHidden(true)
@@ -89,15 +89,6 @@ struct InvitePartnerView: View {
         }
         .font(.cadenceCaption)
         .foregroundStyle(Color.cadenceTextSecondary)
-        .padding(.bottom, CadenceSpacing.md)
-    }
-
-    private var continueButton: some View {
-        Button("Continue") {
-            viewModel.path.append(OnboardingRoute.notifications)
-        }
-        .buttonStyle(PrimaryButtonStyle())
-        .padding(.horizontal, CadenceSpacing.lg)
         .padding(.bottom, 20)
     }
 
