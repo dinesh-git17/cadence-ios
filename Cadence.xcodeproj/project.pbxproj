@@ -7,25 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03268F6CECDB1DA7CDF8CB87 /* PhaseInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C1F6F7922F2D4048057F53 /* PhaseInterval.swift */; };
 		03593DF4225D2928716616E5 /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEF62A65C35585F6C21A3F1 /* ResetPasswordView.swift */; };
 		06097296A322CE4D758D74E9 /* SharingPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B1C4AE053130C7C2A2232 /* SharingPreferencesView.swift */; };
 		08055EE9A05B1BB1AB1A8A0A /* AcceptConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C055B6D36E348E0AFCE9D4 /* AcceptConnectionView.swift */; };
 		08DCC9AF8B1F02AB1B151A39 /* CadenceSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB51B73480AB0D7DE56A2E14 /* CadenceSectionHeader.swift */; };
 		0B27E789B52483C816F068B7 /* NotificationPreferencesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9418438A9219B18B4652F41 /* NotificationPreferencesService.swift */; };
+		100E878FFA70B7676C93D46E /* DecryptedPeriodLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78B868283F0F115A213137A /* DecryptedPeriodLog.swift */; };
 		1039EFD85BA77ED16884B44A /* OnboardingRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512DDDDA7B408F9A621F98C7 /* OnboardingRoute.swift */; };
 		173A2E4772CBF95AA9597BA9 /* CadenceEnergyRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A7FA0AAE246170075F11D3 /* CadenceEnergyRow.swift */; };
 		1CDF3EA45BA0A6C6C8472819 /* CadenceGroupedCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B43F494E0DD805B07C8237F /* CadenceGroupedCard.swift */; };
 		22C6ABA7F947A308F8D6B5A6 /* CadenceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7A81DEBCC515437DE56C5B /* CadenceApp.swift */; };
 		23B2C530D7B10241D769FE6F /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = 089F39558AB57FEA1FB9E8A2 /* Fonts */; };
+		255771C65194809EF1D57711 /* PeriodFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF1237387DC272972B01C96 /* PeriodFlow.swift */; };
 		289DB9133878715F139944BB /* SharedLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2B6504A03AA801032735F0 /* SharedLog.swift */; };
 		28E458EF554469DF6A804BC5 /* CadenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9880DDA2B852F0ED7E7ECC0F /* CadenceTests.swift */; };
+		2D44C4FBBB460B8B5E885952 /* PredictionEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49E36F8DEB65A57B84194A5 /* PredictionEngineTests.swift */; };
 		2FD7F3201F77D4DEC58509B7 /* EmailValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8BF9588BDE863FA7DE77A8 /* EmailValidator.swift */; };
+		3420C583B660941020CD5F6A /* PredictionConfidence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315DA19AA70CB68E6821E0FC /* PredictionConfidence.swift */; };
 		3807E0B55E291692C14D199F /* CadenceIconTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C3142FCD090B6F91573907 /* CadenceIconTile.swift */; };
 		3B39F348922FEB97AE7513F9 /* CycleProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A70FF951485E8B88698EF8 /* CycleProfile.swift */; };
 		3B50B321C688546B788B9D5C /* StepPill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092EFEAA0D53EE3566FCC43F /* StepPill.swift */; };
 		3CAA3BF8CB95C2120C64775F /* CadenceTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32DD8290358EF3C6E4A4CF4 /* CadenceTokens.swift */; };
 		3E57A4433FAF662F14385E2D /* EncryptionServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF38A57EEC9FB4FA7335F183 /* EncryptionServiceTests.swift */; };
-		41E84455D93A7D33D192EB96 /* CyclePhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CCB6005D981B5BC11C8A1E /* CyclePhase.swift */; };
 		429E7D853881893FBB72F3F2 /* OnboardingCoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1553175CBFF72BC6BBCE85 /* OnboardingCoordinatorView.swift */; };
 		4836EA65B3D0863ADC382BD0 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FFE28F1BE7617D949D0CC0 /* WelcomeView.swift */; };
 		505F4C838CBD83D3BC566921 /* EncryptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188FC76DD3203309DFAD89FE /* EncryptionService.swift */; };
@@ -41,18 +45,26 @@
 		7B3CD51D7FDB8C62A55C6436 /* AppleSignInCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BBC771D2B140F2D9794C39 /* AppleSignInCoordinator.swift */; };
 		7C163443981FE2F21B5CC506 /* CadenceChip.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A25E13E53C9BC689C5E08E /* CadenceChip.swift */; };
 		7E026E66FB4C0E0A165055AE /* InvitePartnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9723D1208BEC84AB2F0B732 /* InvitePartnerView.swift */; };
+		7F6EA5946C7AA6D02BCA546E /* PredictionTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117FBE3452FF1032FA3604DF /* PredictionTestHelpers.swift */; };
 		810688B383345DBC818F8B83 /* InviteLinkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F260D5B327A1D78D89EC86 /* InviteLinkService.swift */; };
+		836F73FEF53D051F06A5D5F0 /* CycleRecordDeriverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA5511E27F37EE126288989 /* CycleRecordDeriverTests.swift */; };
 		87CF6F3328540C3DE01B8273 /* CadenceHeroCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD98C6BC4C1E4A300C950AF0 /* CadenceHeroCard.swift */; };
 		898867EF9E4E25868D953D18 /* PickerRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9947DE7E2B7F3C9D687332C /* PickerRow.swift */; };
+		91F7A05CF8EC252257881DC8 /* CycleRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B9DE5A4B104BB6BE8AEE09 /* CycleRecord.swift */; };
 		96B6F59E748B0E03EC63EB82 /* CadenceAvatarCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687C87BBB7F17FD021B6E102 /* CadenceAvatarCircle.swift */; };
+		97536E2358B4AA1A497CB182 /* PredictionEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A51FA930E0B454944C0D05 /* PredictionEngine.swift */; };
+		98F86C743F2693B15FD8A2EF /* CyclePrediction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1496BF40A5BF66D13AD6C30B /* CyclePrediction.swift */; };
 		9B13D3C0EE0E84BB56710141 /* EmailAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD52009B9D9407C2821907F4 /* EmailAuthView.swift */; };
 		9B738BA7E45D579C2382F74D /* CadenceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1DE86724D4B243D0E61FDD /* CadenceUITests.swift */; };
 		9F2C7F538E1143A1A786813D /* CadenceProgressDots.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC10C2DE737B270E96193308 /* CadenceProgressDots.swift */; };
 		A0B10965E26138F42C677BE1 /* PhosphorSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 63BD81BDB51C7EB6DE95DB35 /* PhosphorSwift */; };
 		A1339FF7147D9D8B43A747A0 /* Supabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025A75D80144B072AD84822F /* Supabase.swift */; };
+		A9658CE087AC02A53CD586EF /* CyclePhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C218E54932A9FFE802286D9 /* CyclePhase.swift */; };
 		AA69F1180C890941914BB7CA /* OnboardingBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE22B52BB867D335496BCB5 /* OnboardingBackButton.swift */; };
+		AD42ABBEB4596B3D11D605EB /* CyclePhase+DesignSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B49DBF9DAD0226A8EAFC3FF /* CyclePhase+DesignSystem.swift */; };
 		B113799C232C97FAEFA5EFA8 /* Color+Cadence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C259254050ABD2611807FF00 /* Color+Cadence.swift */; };
 		B87EBF4964614E10F17854ED /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A78DBB0BED3251058288220 /* UserService.swift */; };
+		B8D35D0588748AC2BFE4AE2C /* CycleRecordDeriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A54E3502D2F8362F061CFAD /* CycleRecordDeriver.swift */; };
 		BB3A401186383362C0AF512B /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE60F456B694C5CE8EA7CE /* ButtonStyles.swift */; };
 		BC057A37CD8594BE0ECBBAEA /* LastPeriodDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91A16CD82543AB69927787A /* LastPeriodDateView.swift */; };
 		BD062DB37667BCA059C47671 /* RoleCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C3391B7217763F92DDFDF1 /* RoleCard.swift */; };
@@ -101,17 +113,25 @@
 		092EFEAA0D53EE3566FCC43F /* StepPill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepPill.swift; sourceTree = "<group>"; };
 		09C88CCA366585843ADBA858 /* CycleLogService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CycleLogService.swift; sourceTree = "<group>"; };
 		0A43728D47A1365C8A6A3053 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		117FBE3452FF1032FA3604DF /* PredictionTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictionTestHelpers.swift; sourceTree = "<group>"; };
 		11BFBB1E678B490913416EE7 /* SharingSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharingSettings.swift; sourceTree = "<group>"; };
+		1496BF40A5BF66D13AD6C30B /* CyclePrediction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CyclePrediction.swift; sourceTree = "<group>"; };
 		188FC76DD3203309DFAD89FE /* EncryptionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptionService.swift; sourceTree = "<group>"; };
+		1A54E3502D2F8362F061CFAD /* CycleRecordDeriver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CycleRecordDeriver.swift; sourceTree = "<group>"; };
 		2071FB4A9FE784EDC041D4F6 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		2747B5C0BD75EFECA1D2569B /* Cadence.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Cadence.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		28B9DE5A4B104BB6BE8AEE09 /* CycleRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CycleRecord.swift; sourceTree = "<group>"; };
 		291E4AA84C6C3B02259146C0 /* CadenceSegmentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceSegmentButton.swift; sourceTree = "<group>"; };
+		315DA19AA70CB68E6821E0FC /* PredictionConfidence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictionConfidence.swift; sourceTree = "<group>"; };
 		38A7FA0AAE246170075F11D3 /* CadenceEnergyRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceEnergyRow.swift; sourceTree = "<group>"; };
 		3A2BFA594AEA1BC714DB02C0 /* SharingSettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharingSettingsService.swift; sourceTree = "<group>"; };
+		3B49DBF9DAD0226A8EAFC3FF /* CyclePhase+DesignSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CyclePhase+DesignSystem.swift"; sourceTree = "<group>"; };
 		40368D2887BCEF67D61DC725 /* CadenceToggleRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceToggleRow.swift; sourceTree = "<group>"; };
 		40A70FF951485E8B88698EF8 /* CycleProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CycleProfile.swift; sourceTree = "<group>"; };
 		4A78DBB0BED3251058288220 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		4B43F494E0DD805B07C8237F /* CadenceGroupedCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceGroupedCard.swift; sourceTree = "<group>"; };
+		4C218E54932A9FFE802286D9 /* CyclePhase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CyclePhase.swift; sourceTree = "<group>"; };
+		4DF1237387DC272972B01C96 /* PeriodFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodFlow.swift; sourceTree = "<group>"; };
 		4EAA8EE7DD7E9B04F2A73F9E /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		4F456433D2A424E6A501E1CC /* CadenceUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = CadenceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		512DDDDA7B408F9A621F98C7 /* OnboardingRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRoute.swift; sourceTree = "<group>"; };
@@ -122,6 +142,7 @@
 		65F260D5B327A1D78D89EC86 /* InviteLinkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteLinkService.swift; sourceTree = "<group>"; };
 		687C87BBB7F17FD021B6E102 /* CadenceAvatarCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceAvatarCircle.swift; sourceTree = "<group>"; };
 		6F7A81DEBCC515437DE56C5B /* CadenceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceApp.swift; sourceTree = "<group>"; };
+		71C1F6F7922F2D4048057F53 /* PhaseInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhaseInterval.swift; sourceTree = "<group>"; };
 		754E130081CF8D7B316DA540 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		770B1C4AE053130C7C2A2232 /* SharingPreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharingPreferencesView.swift; sourceTree = "<group>"; };
 		7C730450BAD37724707F7C99 /* CadenceSupabaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceSupabaseError.swift; sourceTree = "<group>"; };
@@ -133,17 +154,18 @@
 		8C9034E82538388296E24DF3 /* PartnerConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnerConnection.swift; sourceTree = "<group>"; };
 		8F1DE86724D4B243D0E61FDD /* CadenceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceUITests.swift; sourceTree = "<group>"; };
 		966D1994827177693D6A0301 /* CycleLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CycleLog.swift; sourceTree = "<group>"; };
-		96CCB6005D981B5BC11C8A1E /* CyclePhase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CyclePhase.swift; sourceTree = "<group>"; };
 		9880DDA2B852F0ED7E7ECC0F /* CadenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceTests.swift; sourceTree = "<group>"; };
 		998821507A17686BDC11A37A /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		9B8BF9588BDE863FA7DE77A8 /* EmailValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidator.swift; sourceTree = "<group>"; };
 		9C2B6504A03AA801032735F0 /* SharedLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedLog.swift; sourceTree = "<group>"; };
+		A1A51FA930E0B454944C0D05 /* PredictionEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictionEngine.swift; sourceTree = "<group>"; };
 		A32DD8290358EF3C6E4A4CF4 /* CadenceTokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceTokens.swift; sourceTree = "<group>"; };
 		A7AE60F456B694C5CE8EA7CE /* ButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
 		A92F17C9E6A9BCBCA513ED21 /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
 		AA9ACFE1F31AAF1BC11516F4 /* CycleLengthsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CycleLengthsView.swift; sourceTree = "<group>"; };
 		AB51B73480AB0D7DE56A2E14 /* CadenceSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceSectionHeader.swift; sourceTree = "<group>"; };
 		ADB41AD7766ABBE13527EF6C /* RoleSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleSelectionView.swift; sourceTree = "<group>"; };
+		B49E36F8DEB65A57B84194A5 /* PredictionEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictionEngineTests.swift; sourceTree = "<group>"; };
 		B7ADA30098921A2A59D58FDA /* PartnerNotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnerNotificationsView.swift; sourceTree = "<group>"; };
 		B9418438A9219B18B4652F41 /* NotificationPreferencesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPreferencesService.swift; sourceTree = "<group>"; };
 		BC10C2DE737B270E96193308 /* CadenceProgressDots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceProgressDots.swift; sourceTree = "<group>"; };
@@ -155,6 +177,7 @@
 		CEEF62A65C35585F6C21A3F1 /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
 		CF38A57EEC9FB4FA7335F183 /* EncryptionServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptionServiceTests.swift; sourceTree = "<group>"; };
 		D68B5385FFD55D37D1BDDA25 /* InviteLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteLink.swift; sourceTree = "<group>"; };
+		D78B868283F0F115A213137A /* DecryptedPeriodLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecryptedPeriodLog.swift; sourceTree = "<group>"; };
 		DBE22B52BB867D335496BCB5 /* OnboardingBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingBackButton.swift; sourceTree = "<group>"; };
 		DD98C6BC4C1E4A300C950AF0 /* CadenceHeroCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceHeroCard.swift; sourceTree = "<group>"; };
 		DDB227624E9820560B400EC7 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
@@ -164,6 +187,7 @@
 		F6BBC771D2B140F2D9794C39 /* AppleSignInCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleSignInCoordinator.swift; sourceTree = "<group>"; };
 		F9723D1208BEC84AB2F0B732 /* InvitePartnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitePartnerView.swift; sourceTree = "<group>"; };
 		F9947DE7E2B7F3C9D687332C /* PickerRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerRow.swift; sourceTree = "<group>"; };
+		FCA5511E27F37EE126288989 /* CycleRecordDeriverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CycleRecordDeriverTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +210,7 @@
 				81082953F1B6DDA70475C8CC /* App */,
 				5B9674EC1AA8E04B1D183A0E /* Auth */,
 				FDEC2C82C08BE089C5619D7D /* DesignSystem */,
+				1A09AE669811A4EF5C593889 /* Engine */,
 				E693CC2E07994C83D9F74040 /* Models */,
 				972356C697465569F9E09933 /* Onboarding */,
 				11EB37EA1F372555425F5CFE /* Services */,
@@ -210,6 +235,22 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		1A09AE669811A4EF5C593889 /* Engine */ = {
+			isa = PBXGroup;
+			children = (
+				4C218E54932A9FFE802286D9 /* CyclePhase.swift */,
+				1496BF40A5BF66D13AD6C30B /* CyclePrediction.swift */,
+				28B9DE5A4B104BB6BE8AEE09 /* CycleRecord.swift */,
+				1A54E3502D2F8362F061CFAD /* CycleRecordDeriver.swift */,
+				D78B868283F0F115A213137A /* DecryptedPeriodLog.swift */,
+				4DF1237387DC272972B01C96 /* PeriodFlow.swift */,
+				71C1F6F7922F2D4048057F53 /* PhaseInterval.swift */,
+				315DA19AA70CB68E6821E0FC /* PredictionConfidence.swift */,
+				A1A51FA930E0B454944C0D05 /* PredictionEngine.swift */,
+			);
+			path = Engine;
+			sourceTree = "<group>";
+		};
 		374814B8ACA93D26517161EA /* Config */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,6 +265,7 @@
 			children = (
 				9880DDA2B852F0ED7E7ECC0F /* CadenceTests.swift */,
 				CF38A57EEC9FB4FA7335F183 /* EncryptionServiceTests.swift */,
+				84F0C8BE63781B4681FDC200 /* Prediction */,
 			);
 			path = CadenceTests;
 			sourceTree = "<group>";
@@ -290,6 +332,16 @@
 			path = App;
 			sourceTree = "<group>";
 		};
+		84F0C8BE63781B4681FDC200 /* Prediction */ = {
+			isa = PBXGroup;
+			children = (
+				FCA5511E27F37EE126288989 /* CycleRecordDeriverTests.swift */,
+				B49E36F8DEB65A57B84194A5 /* PredictionEngineTests.swift */,
+				117FBE3452FF1032FA3604DF /* PredictionTestHelpers.swift */,
+			);
+			path = Prediction;
+			sourceTree = "<group>";
+		};
 		881C78F8E4400412B32350C1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -353,7 +405,7 @@
 				A7AE60F456B694C5CE8EA7CE /* ButtonStyles.swift */,
 				A32DD8290358EF3C6E4A4CF4 /* CadenceTokens.swift */,
 				C259254050ABD2611807FF00 /* Color+Cadence.swift */,
-				96CCB6005D981B5BC11C8A1E /* CyclePhase.swift */,
+				3B49DBF9DAD0226A8EAFC3FF /* CyclePhase+DesignSystem.swift */,
 				CA1E907AC7B7E11BCBD40A16 /* DesignSystemPreview.swift */,
 				08F6B6294A3C1CB2E316751A /* Font+Cadence.swift */,
 				548C43A05E35ABEBD2EECEFE /* Components */,
@@ -519,9 +571,14 @@
 				CDA61521984D7EDADF06C15C /* CycleLengthsView.swift in Sources */,
 				F0E659CB35CBB56B8697E438 /* CycleLog.swift in Sources */,
 				D13EB770524B91CBA3D57AAD /* CycleLogService.swift in Sources */,
-				41E84455D93A7D33D192EB96 /* CyclePhase.swift in Sources */,
+				AD42ABBEB4596B3D11D605EB /* CyclePhase+DesignSystem.swift in Sources */,
+				A9658CE087AC02A53CD586EF /* CyclePhase.swift in Sources */,
+				98F86C743F2693B15FD8A2EF /* CyclePrediction.swift in Sources */,
 				3B39F348922FEB97AE7513F9 /* CycleProfile.swift in Sources */,
 				CABEC207540840F49B8F3A9F /* CycleProfileService.swift in Sources */,
+				91F7A05CF8EC252257881DC8 /* CycleRecord.swift in Sources */,
+				B8D35D0588748AC2BFE4AE2C /* CycleRecordDeriver.swift in Sources */,
+				100E878FFA70B7676C93D46E /* DecryptedPeriodLog.swift in Sources */,
 				DA18D83940DD16DBF4F05333 /* DesignSystemPreview.swift in Sources */,
 				9B13D3C0EE0E84BB56710141 /* EmailAuthView.swift in Sources */,
 				2FD7F3201F77D4DEC58509B7 /* EmailValidator.swift in Sources */,
@@ -541,7 +598,11 @@
 				6B7568E674857EA3FD6C1DFF /* OnboardingViewModel.swift in Sources */,
 				F026932B5CC0C6D5299D476F /* PartnerConnection.swift in Sources */,
 				F947D324333B9A4E4AEBC998 /* PartnerNotificationsView.swift in Sources */,
+				255771C65194809EF1D57711 /* PeriodFlow.swift in Sources */,
+				03268F6CECDB1DA7CDF8CB87 /* PhaseInterval.swift in Sources */,
 				898867EF9E4E25868D953D18 /* PickerRow.swift in Sources */,
+				3420C583B660941020CD5F6A /* PredictionConfidence.swift in Sources */,
+				97536E2358B4AA1A497CB182 /* PredictionEngine.swift in Sources */,
 				03593DF4225D2928716616E5 /* ResetPasswordView.swift in Sources */,
 				BD062DB37667BCA059C47671 /* RoleCard.swift in Sources */,
 				5C8AE9BB75F9766723B1A898 /* RoleSelectionView.swift in Sources */,
@@ -563,7 +624,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				28E458EF554469DF6A804BC5 /* CadenceTests.swift in Sources */,
+				836F73FEF53D051F06A5D5F0 /* CycleRecordDeriverTests.swift in Sources */,
 				3E57A4433FAF662F14385E2D /* EncryptionServiceTests.swift in Sources */,
+				2D44C4FBBB460B8B5E885952 /* PredictionEngineTests.swift in Sources */,
+				7F6EA5946C7AA6D02BCA546E /* PredictionTestHelpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
