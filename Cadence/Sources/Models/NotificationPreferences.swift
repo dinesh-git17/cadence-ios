@@ -7,6 +7,7 @@ struct NotificationPreferences: Codable {
     var dailyLogReminder: Bool
     var partnerActivity: Bool
     var phaseChange: Bool
+    var periodLate: Bool
 
     enum CodingKeys: String, CodingKey {
         case userId = "user_id"
@@ -15,6 +16,7 @@ struct NotificationPreferences: Codable {
         case dailyLogReminder = "daily_log_reminder"
         case partnerActivity = "partner_activity"
         case phaseChange = "phase_change"
+        case periodLate = "period_late"
     }
 }
 
@@ -25,6 +27,7 @@ struct InsertNotificationPreferences: Encodable {
     let dailyLogReminder: Bool
     let partnerActivity: Bool
     let phaseChange: Bool
+    let periodLate: Bool
 
     enum CodingKeys: String, CodingKey {
         case userId = "user_id"
@@ -33,5 +36,6 @@ struct InsertNotificationPreferences: Encodable {
         case dailyLogReminder = "daily_log_reminder"
         case partnerActivity = "partner_activity"
         case phaseChange = "phase_change"
+        case periodLate = "period_late"
     }
 }

@@ -10,6 +10,7 @@ struct LastPeriodDateView: View {
 
     var body: some View {
         VStack(spacing: 0) {
+            OnboardingBackButton()
             progressHeader
             titleSection
             dateDisplayCard
@@ -34,12 +35,17 @@ struct LastPeriodDateView: View {
     // MARK: - Title
 
     private var titleSection: some View {
-        Text("When did your last\nperiod start?")
-            .font(.cadenceTitleMedium)
-            .foregroundStyle(Color.cadenceTextPrimary)
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(.horizontal, CadenceSpacing.lg)
-            .padding(.top, CadenceSpacing.xxl)
+        VStack(alignment: .leading, spacing: 6) {
+            Text("When did your last\nperiod start?")
+                .font(.cadenceTitleMedium)
+                .foregroundStyle(Color.cadenceTextPrimary)
+            Text("This helps predict your next cycle.")
+                .font(.cadenceBody)
+                .foregroundStyle(Color.cadenceTextSecondary)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(.horizontal, CadenceSpacing.lg)
+        .padding(.top, CadenceSpacing.xxl)
     }
 
     // MARK: - Date display
@@ -84,12 +90,35 @@ struct LastPeriodDateView: View {
         .padding(.top, CadenceSpacing.sm)
     }
 
+    private var canGoBack: Bool {
+        guard let threeMonthsAgo = calendar.date(byAdding: .month, value: -3, to: .now) else {
+            return false
+        }
+        let displayed = calendar.dateComponents([.year, .month], from: displayedMonth)
+        let limit = calendar.dateComponents([.year, .month], from: threeMonthsAgo)
+        if let dy = displayed.year, let dm = displayed.month, let ly = limit.year, let lm = limit.month {
+            return (dy, dm) > (ly, lm)
+        }
+        return false
+    }
+
+    private var canGoForward: Bool {
+        let displayed = calendar.dateComponents([.year, .month], from: displayedMonth)
+        let current = calendar.dateComponents([.year, .month], from: .now)
+        if let dy = displayed.year, let dm = displayed.month, let cy = current.year, let cm = current.month {
+            return (dy, dm) < (cy, cm)
+        }
+        return false
+    }
+
     private var monthNavigation: some View {
         HStack {
             Button { shiftMonth(-1) } label: {
                 Image(systemName: "chevron.left")
                     .foregroundStyle(Color.cadenceTextTertiary)
             }
+            .disabled(!canGoBack)
+            .opacity(canGoBack ? 1 : 0.3)
             Spacer()
             Text(displayedMonth, format: .dateTime.month().year())
                 .font(.cadenceLabel)
@@ -99,6 +128,8 @@ struct LastPeriodDateView: View {
                 Image(systemName: "chevron.right")
                     .foregroundStyle(Color.cadenceTextTertiary)
             }
+            .disabled(!canGoForward)
+            .opacity(canGoForward ? 1 : 0.3)
         }
     }
 
@@ -115,15 +146,16 @@ struct LastPeriodDateView: View {
     }
 
     private var dateGrid: some View {
-        LazyVGrid(columns: columns, spacing: CadenceSpacing.xs) {
+        LazyVGrid(columns: columns, spacing: 0) {
             ForEach(Array(daysInMonth().enumerated()), id: \.offset) { _, date in
                 if let date {
                     dateCell(for: date)
                 } else {
-                    Color.clear.frame(width: 28, height: 28)
+                    Color.clear.frame(width: 44, height: 44)
                 }
             }
         }
+        .sensoryFeedback(.selection, trigger: viewModel.lastPeriodDate)
     }
 
     private func dateCell(for date: Date) -> some View {
@@ -140,7 +172,8 @@ struct LastPeriodDateView: View {
             .background(
                 Circle().fill(isSelected ? Color.cadencePrimary : .clear)
             )
-            .contentShape(Circle())
+            .frame(width: 44, height: 44)
+            .contentShape(Rectangle())
             .onTapGesture {
                 guard !isFuture else { return }
                 viewModel.lastPeriodDate = date

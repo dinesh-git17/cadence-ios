@@ -9,7 +9,9 @@ final class OnboardingViewModel: ObservableObject {
 
     // MARK: - Role
 
-    @Published var isTracker: Bool = true
+    enum RoleSelection { case tracker, partner }
+
+    @Published var selectedRole: RoleSelection?
 
     // MARK: - Tracker seed data
 
@@ -30,6 +32,7 @@ final class OnboardingViewModel: ObservableObject {
     @Published var notifyOvulation: Bool = true
     @Published var notifyDailyLog: Bool = true
     @Published var notifyPartnerActivity: Bool = true
+    @Published var notifyPeriodLate: Bool = true
     @Published var notifyPhaseChange: Bool = true
 
     // MARK: - Invite / connection
@@ -88,17 +91,18 @@ extension OnboardingViewModel {
             let email = session.user.email ?? ""
             let name = session.user.userMetadata["full_name"]?.stringValue ?? email
 
+            let tracker = selectedRole == .tracker
             try await userService.upsertUser(
-                id: userId, email: email, displayName: name, isTracker: isTracker
+                id: userId, email: email, displayName: name, isTracker: tracker
             )
             try EncryptionService.shared.loadKey(
                 forUserID: userId.uuidString, serverSecret: Secrets.encryptionSecret
             )
 
-            if isTracker { try await commitTrackerData(userId: userId) }
+            if tracker { try await commitTrackerData(userId: userId) }
             try await commitNotificationPreferences(userId: userId)
 
-            if !isTracker, let token = resolvedInviteToken {
+            if !tracker, let token = resolvedInviteToken {
                 try await inviteLinkService.acceptInvite(token: token, partnerUserId: userId)
             }
 
@@ -106,7 +110,6 @@ extension OnboardingViewModel {
             let localKey = "onboardingComplete.\(userId.uuidString)"
             UserDefaults.standard.set(true, forKey: localKey)
             commitState = .complete
-            NotificationCenter.default.post(name: .onboardingDidComplete, object: nil)
         } catch {
             commitState = .failed("Something went wrong — try again. Your information is saved.")
         }
@@ -141,7 +144,8 @@ extension OnboardingViewModel {
             ovulationAlert: notifyOvulation,
             dailyLogReminder: notifyDailyLog,
             partnerActivity: notifyPartnerActivity,
-            phaseChange: notifyPhaseChange
+            phaseChange: notifyPhaseChange,
+            periodLate: notifyPeriodLate
         )
         try await notificationPreferencesService.upsertNotificationPreferences(prefs)
     }

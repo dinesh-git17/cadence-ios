@@ -12,6 +12,7 @@ struct AcceptConnectionView: View {
 
     var body: some View {
         VStack(spacing: 0) {
+            OnboardingBackButton()
             progressHeader
             titleSection
             connectionContent
@@ -107,13 +108,16 @@ struct AcceptConnectionView: View {
 
     private var noTokenFallback: some View {
         VStack(alignment: .leading, spacing: CadenceSpacing.sm) {
-            Text("No invite link found")
+            Text("Waiting for an invite")
                 .font(.cadenceCaption)
                 .fontWeight(.medium)
                 .foregroundStyle(Color.cadenceTextPrimary)
-            Text("Ask your partner to open Cadence and send you an invite link.")
-                .font(.cadenceCaptionSmall)
-                .foregroundStyle(Color.cadenceTextSecondary)
+            Text(
+                "You'll need an invite link from your partner to connect. "
+                    + "You can continue and connect later from your Partner tab."
+            )
+            .font(.cadenceCaptionSmall)
+            .foregroundStyle(Color.cadenceTextSecondary)
         }
         .padding(CadenceSpacing.md)
         .background(Color.cadenceBgWarm)
@@ -127,7 +131,7 @@ struct AcceptConnectionView: View {
     }
 
     private var acceptButton: some View {
-        Button("Accept & connect") {
+        Button(inviteToken != nil ? "Accept & connect" : "Continue without connecting") {
             viewModel.resolvedInviteToken = inviteToken
             viewModel.path.append(OnboardingRoute.partnerNotifications)
         }
